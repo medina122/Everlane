@@ -149,7 +149,7 @@ def main():
 
     try:
         
-        preparar_worksplace()
+        # preparar_worksplace()
 
         for cc in cc_for_use:
             
