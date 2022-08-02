@@ -19,7 +19,7 @@ class PyAutoGUI_Bot():
         self.size = pg.size()
 
     # Ubicamos imagenes en pantalla y realizamos acciones en consecuencia
-    def locate(self, name, check=False, wait=0, move=False, click=True, auto=True):
+    def locate(self, name, check=False, wait=0, move=False, click=True):
         
         # Inicio retardado si es diferente a 0
         if wait != 0: time.sleep(wait)
@@ -44,7 +44,6 @@ class PyAutoGUI_Bot():
             time.sleep(0.2)
             if move: pg.moveTo(self.cords)
             if click: pg.click(self.cords)
-            if auto: pg.moveTo(x=random.randint(0, self.size[0]), y=random.randint(0, self.size[1]))
             return True
         
         # Si no encuentra nada, retornara False
