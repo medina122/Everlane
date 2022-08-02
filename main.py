@@ -84,13 +84,16 @@ bot.scroll(-500)
 cc_namso = '5217295329264455|11|2023|458'
 cc = separar_cc(cc_namso)
 
+print(cc_namso)
+
 bot.locate('cc')
 bot.write(cc[0])
-
+print('CC')
 bot.press('tab')
-bot.write(cc[1])
 
+bot.write(f"{cc[1]}/{cc[2][2:4]}")
+print('MM/YY')
 bot.press('tab')
-print(cc[2][2:4])
 
+bot.write(cc[3])
 bot.scroll(-400)
