@@ -91,10 +91,12 @@ bot.write(cc[0])
 print('CC')
 
 bot.write(cc[1])
-print(cc[1])
+print(f"CC: {cc[1]}")
 
 bot.write(cc[2][2:4])
-print(cc[2][2:4])
+print(f"MMYY: {cc[1]}/{cc[2][2][2:4]}")
 
 bot.write(cc[3])
-bot.scroll(-400)
+print(f"CVC: {cc[3]}")
+bot.pause(0.1)
+bot.scroll(-500)
