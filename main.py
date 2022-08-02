@@ -130,7 +130,7 @@ def livear(cc_namso):
 
 
         # Seleccionamos y escribimos la CC
-        if bot.locate('mmyy'):
+        if bot.locate('mmyy',wait=0.2):
             bot.pause(1)
         
         else:
@@ -197,7 +197,15 @@ def main():
 if __name__ == '__main__':
     # preparar_worksplace()
     try: 
+        # Iniciar grabacion
+
+        bot.press('F10')
+        bot.press('space')
+        bot.press('F10')
+
         main() # Arreglos
+        bot.press('F10')
+
     except KeyboardInterrupt:
         exit()
 
