@@ -1,7 +1,7 @@
 ### Hecho el 02/08/2008 por SyntaxErr0r ###
 import random
 from pg_bot import PyAutoGUI_Bot
-from funciones import generar_identidad, telegram
+from funciones import generar_identidad, telegram, separar_cc
 
 # Variables y Objetos
 
@@ -78,5 +78,19 @@ bot.locate('select_shipping_option', check=True)
 bot.locate('continue_to_payment', wait=0.5) or bot.press('enter')
 bot.pause(0.20)
 bot.scroll(-500)
+
 # Ponemos la CC #
 
+cc_namso = ''
+cc = separar_cc(cc_namso)
+
+bot.locate('cc')
+bot.write(cc[0])
+
+bot.press('tab')
+bot.write(cc[1])
+
+bot.press('tab')
+print(cc[2][2:4])
+
+bot.scroll(-400)

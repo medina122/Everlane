@@ -22,3 +22,7 @@ def generar_identidad():
     apellido = random.choice(apellidos)
     email = nombre.lower() + apellido.lower() + str(random.randint(1,99)) + random.choice(dominios)
     return nombre, apellido, email
+
+def separar_cc(cc:str):
+    cc_split = cc.split('|')
+    return cc_split
