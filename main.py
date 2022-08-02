@@ -61,8 +61,8 @@ bot.press('tab') # Saltamos la casilla de State
 bot.write('33191')
 bot.press('tab') # Saltamos la casilla de Zip Code
 bot.press('tab') # Saltamos la casilla de Phone Number
-bot.press('enter')
-bot.locate('continue_to_payment', wait=1)
-
+bot.scroll(-300)
+bot.locate('select_shipping_option', check=True, click=False)
+bot.locate('continue_to_payment', wait=1) or bot.press('enter')
 # Ponemos la CC #
 
