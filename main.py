@@ -29,10 +29,10 @@ bot.press('enter')
 #bot.locate('descuento1', wait=1) or bot.locate('descuento2')
 
 # Escogemos la Talla, agregamos al carrito y hacemos checkout
-bot.locate('sock', check=True, click=False)
+bot.locate('sock', wait=1, check=True, click=False)
 bot.scroll(-200)
-bot.locate('talla_M', wait=0.5) or bot.locate('tala_L')
-bot.locate('agregar_carrito')
+bot.locate('talla_M', wait=0.5) or bot.locate('talla_L')
+bot.locate('agregar_carrito', wait=0.5)
 bot.locate('your_cart', check=True, click=False)
 bot.locate('checkout')
 
