@@ -71,3 +71,6 @@ class PyAutoGUI_Bot():
     
     def pause(self, interval):
         time.sleep(interval)
+
+    def move(self, x, y):
+        pg.moveTo(x, y)
