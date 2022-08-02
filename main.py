@@ -110,10 +110,11 @@ def livear(cc_namso):
         bot.pause(1)
         bot.locate('place_order')
 
-    elif bot.locate('payment_method2'):
+    elif bot.locate('payment_method2', click=False):
         bot.locate('edit') or bot.locate('close')
         credit_card = bot.get_position('credit_card', wait=1)
         bot.move(credit_card[0]+80, credit_card[1]+60)
+        bot.click()
         bot.press_both('ctrl', 'a')
         
         print(f'CC: {cc[0]}')
@@ -136,7 +137,6 @@ def livear(cc_namso):
         bot.pause(0.5)
         bot.locate('place_order')
     
-    else: print('Me perdi :(')
 # Logica
 
 def main():
