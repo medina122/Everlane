@@ -149,24 +149,18 @@ def main():
 5217295329288637|11|2023|780
     """
     cc_for_use = crear_lista(ccs)
-
-    try:
         
-        # preparar_worksplace()
+    # preparar_worksplace()
+    for cc in cc_for_use:
+        
+        livear(cc)
+        bot.pause(5)
+        if bot.locate('thanks') or bot.locate('live') or bot.locate('survey'):
+            print(f'CC: {cc} - Live!')
+            preparar_worksplace()
+        elif bot.locate('error1'):
+            print('There was a problem processing your card. Please call your card issuer or try a different card.')
 
-        for cc in cc_for_use:
-            
-            livear(cc)
-            bot.pause(5)
-
-            if bot.locate('thanks') or bot.locate('live') or bot.locate('survey'):
-                print(f'CC: {cc} - Live!')
-                preparar_worksplace()
-
-            elif bot.locate('error1'):
-                print('There was a problem processing your card. Please call your card issuer or try a different card.')
-
-    except: print('Algo salio mal')
 
 if __name__ == '__main__':
     main()
