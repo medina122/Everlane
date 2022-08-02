@@ -109,7 +109,7 @@ def livear(cc_namso):
         bot.pause(1)
         bot.locate('place_order')
 
-    elif bot.locate('edit'):
+    elif bot.locate('edit') or bot.locate('close'):
         credit_card = bot.get_position('credit_card', wait=1)
         bot.move(credit_card[0]+80, credit_card[1]+60)
         bot.press_both('ctrl', 'a')
@@ -159,6 +159,9 @@ def main():
             if bot.locate('thanks') or bot.locate('live') or bot.locate('survey'):
                 print(f'CC: {cc} - Live!')
                 preparar_worksplace()
+
+            elif bot.locate('error1'):
+                print('There was a problem processing your card. Please call your card issuer or try a different card.')
 
     except: print('Algo salio mal')
 
