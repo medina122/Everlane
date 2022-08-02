@@ -116,6 +116,7 @@ def livear(cc_namso):
         print(credit_card)
         bot.move(credit_card[0]+80, credit_card[1]+60)
         bot.click()
+        bot.click() 
         bot.press_both('ctrl', 'a')
         
         print(f'CC: {cc[0]}')
@@ -143,7 +144,6 @@ def livear(cc_namso):
 def main():
 
     ccs = """
-5217295329238244|11|2023|882
 5217295329238574|11|2023|522
 5217295329270668|11|2023|334
 5217295329288637|11|2023|780
