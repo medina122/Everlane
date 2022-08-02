@@ -49,7 +49,7 @@ bot.locate('full_name', wait=0.5)
 bot.write(f"{id[0]} {id[1]}")
 bot.press('tab') # Saltamos la casilla de Full Name
 bot.press('tab') # Saltamos la casilla de Country
-bot.write(str(random.randint(10,100)))
+bot.write(str(random.randint(1500,1700)))
 bot.press('tab') # Saltamos la casilla de Street Address
 bot.press('tab') # Saltamos la casilla de Apartment
 bot.press('tab') # Saltamos la casilla de PO Box
@@ -73,6 +73,3 @@ bot.press('enter')
 
 # Ponemos la CC #
 
-bot.scroll()
-bot.locate('')
-bot.locate('', check=True, click=False)

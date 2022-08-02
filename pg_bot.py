@@ -58,6 +58,7 @@ class PyAutoGUI_Bot():
         return pg.locateOnScreen(path, self.conf)
     
     def press(self, key):
+        time.sleep(0.1)
         pg.press(key)
 
     def press_both(self, key1, key2):
