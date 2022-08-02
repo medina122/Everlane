@@ -1,5 +1,6 @@
 ### Hecho el 02/08/2008 por SyntaxErr0r ###
 import random
+from signal import CTRL_C_EVENT
 from pg_bot import PyAutoGUI_Bot
 from funciones import generar_identidad, telegram, separar_cc, crear_lista
 
@@ -194,7 +195,10 @@ def main():
 
 if __name__ == '__main__':
     # preparar_worksplace()
-    main() # Arreglos
+    try: 
+        main() # Arreglos
+    except KeyboardInterrupt:
+        exit()
 
     
 
