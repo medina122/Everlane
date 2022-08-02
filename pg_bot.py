@@ -57,10 +57,10 @@ class PyAutoGUI_Bot():
         path = os.path.join(self.path, 'src', name)+'.png'
         return pg.locateOnScreen(path, self.conf)
     
-    def press(key:str):
+    def press(self, key):
         pg.press(key)
 
-    def press_both(key1, key2):
+    def press_both(self, key1, key2):
         pg.hotkey(key1, key2)
 
     def scroll(self, clicks):
