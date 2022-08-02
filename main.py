@@ -29,10 +29,10 @@ bot.press('enter')
 #bot.locate('descuento1', wait=1) or bot.locate('descuento2')
 
 # Escogemos la Talla, agregamos al carrito y hacemos checkout
-bot.locate('sock', wait=3, check=True, click=False)
+bot.locate('sock', wait=2, check=True, click=False)
 bot.scroll(-200)
 bot.locate('talla_M', wait=0.5) or bot.locate('talla_L')
-bot.locate('agregar_carrito', wait=0.3)
+bot.locate('agregar_carrito', wait=0.5)
 bot.locate('your_cart', check=True, click=False)
 bot.locate('checkout')
 
@@ -84,11 +84,9 @@ bot.scroll(-500)
 cc_namso = '5217295329264455|11|2023|458'
 cc = separar_cc(cc_namso)
 
-print(cc_namso)
-
 bot.locate('cc')
 bot.write(cc[0])
-print('CC')
+print(f'CC: {cc}')
 
 bot.write(cc[1])
 print(f"CC: {cc[1]}")
@@ -99,6 +97,6 @@ print(f"MMYY: {cc[1]}/{cc[2][2][2:4]}")
 bot.write(cc[3])
 print(f"CVC: {cc[3]}")
 bot.pause(0.1)
-bot.scroll(-500)
+bot.scroll(-400)
 
-bot.locate('review_order')
+bot.locate('review_order', wait=1)
