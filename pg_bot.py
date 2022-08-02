@@ -75,5 +75,5 @@ class PyAutoGUI_Bot():
     def move(self, x, y):
         pg.moveTo(x, y)
 
-    def click(self, click=1):
-        pg.click(click)
+    def click(self):
+        pg.click()
