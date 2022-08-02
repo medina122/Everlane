@@ -89,13 +89,12 @@ print(cc_namso)
 bot.locate('cc')
 bot.write(cc[0])
 print('CC')
-bot.press('tab')
 
 bot.write(cc[1])
 print(cc[1])
+
 bot.write(cc[2][2:4])
-print(cc[2])
-bot.press('tab')
+print(cc[2][2:4])
 
 bot.write(cc[3])
 bot.scroll(-400)
