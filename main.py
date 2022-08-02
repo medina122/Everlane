@@ -76,6 +76,7 @@ bot.scroll(-300)
 bot.locate('see_shipping_options', wait=0.2)
 bot.locate('select_shipping_option', check=True)
 bot.locate('continue_to_payment', wait=0.5) or bot.press('enter')
-bot.scroll(-400)
+bot.pause(0.20)
+bot.scroll(-500)
 # Ponemos la CC #
 
