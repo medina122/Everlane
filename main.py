@@ -82,6 +82,7 @@ def preparar_worksplace():
     bot.scroll(-500)
 
 def livear(cc_namso):
+    print(f"Current {cc_namso}")
     cc = separar_cc(cc_namso)
 
     if bot.locate('cc', wait=0.5):
