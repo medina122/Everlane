@@ -110,6 +110,8 @@ def livear(cc_namso):
         bot.locate('place_order')
 
     elif bot.locate('payment_method2', click=False):
+
+        # Si encontramos el boton de editar o cerrar
         bot.locate('edit') or bot.locate('close')
         bot.pause(1)
         credit_card = bot.get_position('credit_card')
@@ -117,33 +119,56 @@ def livear(cc_namso):
         bot.move(credit_card[0]+80, credit_card[1]+60)
         bot.click()
         bot.pause(1)
+
+        # Seleccionamos y escribimos la CC
         bot.press_both('ctrl', 'a')
         bot.press('backspace')
         bot.pause(1)
         print(f'CC: {cc[0]}')
         bot.write(cc[0])
-        bot.pause(1)
-        bot.press('tab')
-        bot.pause(1)
-        bot.press_both('ctrl', 'a')
-        bot.press('backspace')
-        bot.pause(1)
+
+
+        # Seleccionamos y escribimos la CC
+        if bot.locate('mmyy'):
+            bot.pause(1)
+        
+        else:
+            bot.press('tab')
+            bot.pause(1)
+            bot.press_both('ctrl', 'a')
+            bot.press('backspace')
+            bot.pause(1)
+
         print(f"MMYY: {cc[1]}/{cc[2][2:4]}")
         bot.write(cc[1])
         bot.write(cc[2][2:4])
-        bot.press('tab')
-        bot.pause(1)
-        
-        bot.press_both('ctrl', 'a')
-        bot.press('backspace')
-        bot.pause(0.5)
+
+        # Seleccionamos el CVC
+
+        if bot.locate('cvv'):
+            pass
+        else:
+            bot.press('tab')
+            bot.pause(1)
+            bot.press_both('ctrl', 'a')
+            bot.press('backspace')
+            bot.pause(0.5)
+
         print(f"CVC: {cc[3]}")
         bot.write(cc[3])
         bot.pause(1)
+
+        # Hacemos click en credit card seguido de un scroll
         bot.locate('credit_card')
         bot.scroll(-500)
-        bot.pause(1.2)
-        bot.locate('review_order', check=True)
+        bot.pause(2)
+
+        if bot.locate('review_order'):
+            pass
+        else: 
+            bot.pause(1)
+            bot.locate('review_order', check=True)
+
         bot.pause(0.5)
         bot.locate('place_order')
     
@@ -166,7 +191,6 @@ def main():
             preparar_worksplace()
         elif bot.locate('error1'):
             print('There was a problem processing your card. Please call your card issuer or try a different card.')
-
 
 if __name__ == '__main__':
     # preparar_worksplace()
