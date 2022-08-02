@@ -32,7 +32,7 @@ bot.press('enter')
 bot.locate('sock', wait=3, check=True, click=False)
 bot.scroll(-200)
 bot.locate('talla_M', wait=0.5) or bot.locate('talla_L')
-bot.locate('agregar_carrito', wait=0.5)
+bot.locate('agregar_carrito', wait=0.3)
 bot.locate('your_cart', check=True, click=False)
 bot.locate('checkout')
 
@@ -74,7 +74,8 @@ bot.press('tab') # Saltamos la casilla de Phone Number
 bot.pause(0.10)
 bot.scroll(-300)
 bot.locate('see_shipping_options', wait=0.2)
-bot.locate('select_shipping_option', wait=0.5)
+bot.locate('select_shipping_option', check=True)
 bot.locate('continue_to_payment', wait=0.5) or bot.press('enter')
+bot.scroll(-400)
 # Ponemos la CC #
 
