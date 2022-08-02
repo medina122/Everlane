@@ -110,7 +110,7 @@ def livear(cc_namso):
         bot.pause(1)
         bot.locate('place_order')
 
-    elif bot.locate('payment_method2', click=False):
+    elif bot.locate('credit_card', click=False):
 
         # Si encontramos el boton de editar o cerrar
         bot.locate('edit') or bot.locate('close')
