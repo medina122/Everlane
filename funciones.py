@@ -20,5 +20,5 @@ dominios = ['@gmail.com', '@outlook.com', '@hotmail.com']
 def generar_identidad():
     nombre = random.choice(nombres)
     apellido = random.choice(apellidos)
-    email = nombre.lower + apellido.lower + str(random.randint(1,99)) + random.choice(dominios)
+    email = nombre.lower() + apellido.lower() + str(random.randint(1,99)) + random.choice(dominios)
     return nombre, apellido, email
