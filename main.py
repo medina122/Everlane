@@ -84,7 +84,7 @@ def preparar_worksplace():
 def livear(cc_namso):
     cc = separar_cc(cc_namso)
 
-    if bot.locate('cc', wait=1):
+    if bot.locate('cc', wait=0.5):
         bot.pause(0.2)
         print(f'CC: {cc[0]}')
         bot.write(cc[0])
@@ -109,7 +109,7 @@ def livear(cc_namso):
         bot.pause(1)
         bot.locate('place_order')
 
-    elif bot.locate('payment_method'):
+    elif bot.locate('payment_method2'):
         bot.locate('edit') or bot.locate('close')
         credit_card = bot.get_position('credit_card', wait=1)
         bot.move(credit_card[0]+80, credit_card[1]+60)
