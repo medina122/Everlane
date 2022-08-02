@@ -78,7 +78,7 @@ def preparar_worksplace():
     bot.locate('see_shipping_options', 1)
     bot.locate('select_shipping_option', check=True)
     bot.locate('continue_to_payment', wait=0.5) or bot.press('enter')
-    bot.pause(0.20)
+    bot.pause(0.50)
     bot.scroll(-500)
 
 def livear(cc_namso):
@@ -101,7 +101,7 @@ def livear(cc_namso):
         bot.write(cc[3])
 
         bot.pause(0.2)
-        bot.locate('credit_card')
+        bot.locate('credit_card', wait=0.5)
         bot.scroll(-500)
         bot.pause(1.5)
         bot.locate('review_order', check=True)
@@ -140,15 +140,17 @@ def livear(cc_namso):
 def main():
 
     ccs = """
-5217295329237048|11|2023|217
 5217295329238244|11|2023|882
+5217295329238574|11|2023|522
+5217295329270668|11|2023|334
+5217295329288637|11|2023|780
     """
     cc_for_use = crear_lista(ccs)
     print(cc_for_use)
 
     try:
         
-        preparar_worksplace()
+        # preparar_worksplace()
 
         for cc in cc_for_use:
             
