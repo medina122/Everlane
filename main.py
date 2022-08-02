@@ -104,3 +104,6 @@ bot.pause(0.5)
 bot.scroll(-500)
 bot.pause(1.5)
 bot.locate('review_order', check=True)
+
+bot.pause(1)
+bot.locate('place_order')
