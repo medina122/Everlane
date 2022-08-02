@@ -41,10 +41,11 @@ id = generar_identidad()
 
 bot.locate('enter_email', check=True, click=False)
 bot.locate('email_address')
+bot.write(id[2])
 bot.locate('continue_to_shipping') or bot.press('enter')
 bot.scroll(-200)
 bot.locate('shipping', check=True, click=False)
-bot.locate('full_name')
+bot.locate('full_name', wait=0.5)
 bot.write(f"{id[0]} {id[1]}")
 bot.press('tab') # Saltamos la casilla de Full Name
 bot.press('tab') # Saltamos la casilla de Country
