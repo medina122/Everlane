@@ -67,7 +67,7 @@ class PyAutoGUI_Bot():
         pg.scroll(clicks)
     
     def write(self, content):
-        pg.typewrite(content)
+        pg.typewrite(content, interval=0.10)
     
     def pause(self, interval):
         time.sleep(interval)
