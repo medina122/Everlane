@@ -46,23 +46,29 @@ bot.locate('continue_to_shipping') or bot.press('enter')
 bot.scroll(-200)
 bot.locate('shipping', check=True, click=False)
 bot.locate('full_name', wait=0.5)
+print('Nombre')
 bot.write(f"{id[0]} {id[1]}")
 bot.press('tab') # Saltamos la casilla de Full Name
 bot.press('tab') # Saltamos la casilla de Country
+print('Direccion')
 bot.write(str(random.randint(1500,1700)))
 bot.press('tab') # Saltamos la casilla de Street Address
 bot.press('tab') # Saltamos la casilla de Apartment
 bot.press('tab') # Saltamos la casilla de PO Box
+print('Ciudad')
 bot.write('Doral')
 bot.press('tab') # Saltamos la casilla de City
 bot.write('fl')
+print('Estado')
 bot.press('enter')
 bot.press('tab') # Saltamos la casilla de State
+print('Zip Code')
 bot.write('33191')
 bot.press('tab') # Saltamos la casilla de Zip Code
 bot.press('tab') # Saltamos la casilla de Phone Number
 bot.scroll(-300)
-bot.locate('select_shipping_option', check=True, click=False)
-bot.locate('continue_to_payment', wait=1) or bot.press('enter')
+bot.locate('see_shipping_options', wait=0.2)
+bot.locate('select_shipping_option', wait=0.5)
+bot.locate('continue_to_payment', wait=0.5) or bot.press('enter')
 # Ponemos la CC #
 
