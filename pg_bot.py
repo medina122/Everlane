@@ -11,6 +11,9 @@ class PyAutoGUI_Bot():
     # Inicializamos Colorama para agregar colores a los print
     colorama.init()
 
+    # Establecemos la pausa a 0
+    pg.PAUSE = 0
+    
     # Asignamos las variables que necesitaremos
     def __init__(self):
         self.cords = None
@@ -32,7 +35,7 @@ class PyAutoGUI_Bot():
         # Si tenemos check buscara la imagen en bucle
         while not self.cords and check:
             count +=1
-            time.sleep(1)
+            time.sleep(0.2)
             print(f"{Fore.YELLOW}[...]{Fore.WHITE} Trying to locate {name}, attempt: {count}")
             self.cords = pg.locateOnScreen(path, self.conf) 
 
@@ -41,7 +44,6 @@ class PyAutoGUI_Bot():
             print(f"{Fore.GREEN}[+]{Fore.WHITE} Found {name} at {self.cords}")
 
             # Para simular comportamiento humano agregaremos lo siguiente:
-            time.sleep(0.2)
             if move: pg.moveTo(self.cords)
             if click: pg.click(self.cords)
             return True
@@ -67,7 +69,7 @@ class PyAutoGUI_Bot():
         pg.scroll(clicks)
     
     def write(self, content):
-        pg.typewrite(content, interval=0.10)
+        pg.typewrite(content, interval=0.08)
     
     def pause(self, interval):
         time.sleep(interval)
