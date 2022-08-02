@@ -41,7 +41,7 @@ class PyAutoGUI_Bot():
             print(f"{Fore.GREEN}[+]{Fore.WHITE} Found {name} at {self.cords}")
 
             # Para simular comportamiento humano agregaremos lo siguiente:
-            time.sleep(random.randint(1,5))
+            time.sleep(0.2)
             if move: pg.moveTo(self.cords)
             if click: pg.click(self.cords)
             if auto: pg.moveTo(x=random.randint(0, self.size[0]), y=random.randint(0, self.size[1]))

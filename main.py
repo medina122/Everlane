@@ -26,7 +26,7 @@ bot.press('enter')
 # Quitamos la casilla del 10% descuento
 
 bot.locate('descuento', check=True, click=False)
-bot.locate('descuento1') or bot.locate('descuento2')
+bot.locate('descuento1', wait=1) or bot.locate('descuento2')
 
 # Escogemos la Talla, agregamos al carrito y hacemos checkout
 bot.scroll(-200)
