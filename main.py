@@ -86,7 +86,7 @@ cc = separar_cc(cc_namso)
 
 bot.locate('cc')
 bot.write(cc[0])
-print(f'CC: {cc}')
+print(f'CC: {cc[0]}')
 
 bot.write(cc[1])
 print(f"CC: {cc[1]}")
@@ -96,7 +96,7 @@ print(f"MMYY: {cc[1]}/{cc[2][2:4]}")
 
 bot.write(cc[3])
 print(f"CVC: {cc[3]}")
-bot.pause(0.1)
-bot.scroll(-400)
+bot.pause(0.2)
+bot.scroll(-500)
 bot.pause(1)
 bot.locate('review_order', check=True)
