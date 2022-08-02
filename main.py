@@ -108,8 +108,7 @@ def livear(cc_namso):
         bot.pause(1)
         bot.locate('place_order')
 
-    else: 
-        bot.locate('edit')
+    elif bot.locate('edit'):
         credit_card = bot.get_position('credit_card', wait=1)
         bot.move(credit_card[0]+80, credit_card[1]+60)
         bot.press_both('ctrl', 'a')
@@ -132,7 +131,8 @@ def livear(cc_namso):
         bot.locate('review_order', check=True)
         bot.pause(0.5)
         bot.locate('place_order')
-
+    
+    else: print('Me perdi :(')
 # Logica
 
 def main():
@@ -149,12 +149,11 @@ def main():
         preparar_worksplace()
 
         for cc in cc_for_use:
+            
             livear(cc)
 
-            if bot.locate('live'):
-                print(f'{cc} Live!')
-            elif bot.locate('error1'):
-                pass
+            if bot.locate('thanks') or bot.locate('live') or bot.locate('survey'):
+                print(f'CC: {cc} - Live!')
 
     except: print('Algo salio mal')
 
