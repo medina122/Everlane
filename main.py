@@ -203,9 +203,10 @@ if __name__ == '__main__':
         bot.press('space')
         bot.pause(1)
         bot.press('F10')
-        bot.pause(1)
+        bot.pause(2)
 
         main() # Arreglos
+        bot.pause(2)
         bot.press('F10')
 
     except KeyboardInterrupt:
