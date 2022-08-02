@@ -73,7 +73,7 @@ bot.press('tab') # Saltamos la casilla de Zip Code
 bot.press('tab') # Saltamos la casilla de Phone Number
 bot.pause(0.10)
 bot.scroll(-300)
-bot.locate('see_shipping_options', wait=0.2)
+bot.locate('see_shipping_options', 1)
 bot.locate('select_shipping_option', check=True)
 bot.locate('continue_to_payment', wait=0.5) or bot.press('enter')
 bot.pause(0.20)
