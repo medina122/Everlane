@@ -152,6 +152,7 @@ def livear(cc_namso):
             bot.press('tab')
             bot.pause(1)
             bot.press_both('ctrl', 'a')
+            bot.pause(0.2)
             bot.press('backspace')
             bot.pause(0.5)
 
