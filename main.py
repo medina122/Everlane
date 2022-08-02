@@ -200,7 +200,9 @@ if __name__ == '__main__':
         # Iniciar grabacion
 
         bot.press('F10')
+        bot.pause(2)
         bot.press('space')
+        bot.pause(1)
         bot.press('F10')
 
         main() # Arreglos
