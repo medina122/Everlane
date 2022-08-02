@@ -62,14 +62,7 @@ bot.write('33191')
 bot.press('tab') # Saltamos la casilla de Zip Code
 bot.press('tab') # Saltamos la casilla de Phone Number
 bot.press('enter')
-
-
-
-
-
-
-
-
+bot.locate('continue_to_payment', wait=1)
 
 # Ponemos la CC #
 
