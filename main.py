@@ -113,6 +113,7 @@ def livear(cc_namso):
     elif bot.locate('payment_method2', click=False):
         bot.locate('edit') or bot.locate('close')
         credit_card = bot.get_position('credit_card', wait=1)
+        print(credit_card)
         bot.move(credit_card[0]+80, credit_card[1]+60)
         bot.click()
         bot.press_both('ctrl', 'a')
