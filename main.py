@@ -146,11 +146,10 @@ def main():
 5217295329288637|11|2023|780
     """
     cc_for_use = crear_lista(ccs)
-    print(cc_for_use)
 
     try:
         
-        # preparar_worksplace()
+        preparar_worksplace()
 
         for cc in cc_for_use:
             
