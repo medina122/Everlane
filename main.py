@@ -81,7 +81,7 @@ bot.scroll(-500)
 
 # Ponemos la CC #
 
-cc_namso = '5217295329264455|11|2023|458'
+cc_namso = '5217295329260313|11|2023|601'
 cc = separar_cc(cc_namso)
 
 bot.locate('cc', wait=1)
