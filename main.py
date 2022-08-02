@@ -42,30 +42,36 @@ id = generar_identidad()
 bot.locate('enter_email', check=True, click=False)
 bot.locate('email_address')
 bot.write(id[2])
-bot.locate('continue_to_shipping') or bot.press('enter')
+bot.locate('continue_to_shipping', wait=0.1) or bot.press('enter')
 bot.scroll(-200)
 bot.locate('shipping', check=True, click=False)
 bot.locate('full_name', wait=0.5)
 print('Nombre')
+bot.pause(0.10)
 bot.write(f"{id[0]} {id[1]}")
 bot.press('tab') # Saltamos la casilla de Full Name
 bot.press('tab') # Saltamos la casilla de Country
+bot.pause(0.10)
 print('Direccion')
 bot.write(str(random.randint(1500,1700)))
 bot.press('tab') # Saltamos la casilla de Street Address
 bot.press('tab') # Saltamos la casilla de Apartment
 bot.press('tab') # Saltamos la casilla de PO Box
+bot.pause(0.10)
 print('Ciudad')
 bot.write('Doral')
 bot.press('tab') # Saltamos la casilla de City
 bot.write('fl')
+bot.pause(0.10)
 print('Estado')
 bot.press('enter')
 bot.press('tab') # Saltamos la casilla de State
+bot.pause(0.10)
 print('Zip Code')
 bot.write('33191')
 bot.press('tab') # Saltamos la casilla de Zip Code
 bot.press('tab') # Saltamos la casilla de Phone Number
+bot.pause(0.10)
 bot.scroll(-300)
 bot.locate('see_shipping_options', wait=0.2)
 bot.locate('select_shipping_option', wait=0.5)
