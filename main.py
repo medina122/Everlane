@@ -112,7 +112,7 @@ def livear(cc_namso):
 
     elif bot.locate('payment_method2', click=False):
         bot.locate('edit') or bot.locate('close')
-        credit_card = bot.get_position('credit_card', wait=1)
+        credit_card = bot.get_position('credit_card')
         print(credit_card)
         bot.move(credit_card[0]+80, credit_card[1]+60)
         bot.click()
@@ -149,7 +149,7 @@ def main():
 5217295329288637|11|2023|780
     """
     cc_for_use = crear_lista(ccs)
-        
+
     # preparar_worksplace()
     for cc in cc_for_use:
         
