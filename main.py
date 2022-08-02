@@ -100,3 +100,5 @@ bot.write(cc[3])
 print(f"CVC: {cc[3]}")
 bot.pause(0.1)
 bot.scroll(-500)
+
+bot.locate('review_order')
