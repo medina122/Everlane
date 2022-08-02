@@ -89,7 +89,6 @@ def livear(cc_namso):
         bot.pause(0.2)
         print(f'CC: {cc[0]}')
         bot.write(cc[0])
-
         bot.pause(0.2)
         bot.write(cc[1])
 
@@ -127,6 +126,7 @@ def livear(cc_namso):
         bot.press_both('ctrl', 'a')
         bot.pause(1)
         print(f"MMYY: {cc[1]}/{cc[2][2:4]}")
+        bot.write(cc[1])
         bot.write(cc[2][2:4])
         bot.press('tab')
         bot.pause(1)
