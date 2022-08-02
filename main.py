@@ -137,9 +137,9 @@ def livear(cc_namso):
 
 def main():
 
-    ccs = """5217295329208627|11|2023|528
-5217295329250165|11|2023|827
-5217295329232338|11|2023|515
+    ccs = """5217295329251726|11|2023|808
+5217295329237048|11|2023|217
+5217295329238244|11|2023|882
     """
     cc_for_use = crear_lista(ccs)
     print(cc_for_use)
@@ -154,6 +154,7 @@ def main():
 
             if bot.locate('thanks') or bot.locate('live') or bot.locate('survey'):
                 print(f'CC: {cc} - Live!')
+                preparar_worksplace()
 
     except: print('Algo salio mal')
 
