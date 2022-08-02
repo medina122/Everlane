@@ -128,7 +128,6 @@ def livear(cc_namso):
         print(f'CC: {cc[0]}')
         bot.write(cc[0])
 
-
         # Seleccionamos y escribimos la CC
         if bot.locate('mmyy',wait=0.2):
             bot.pause(1)
@@ -204,6 +203,7 @@ if __name__ == '__main__':
         bot.press('space')
         bot.pause(1)
         bot.press('F10')
+        bot.pause(1)
 
         main() # Arreglos
         bot.press('F10')
