@@ -91,7 +91,7 @@ bot.write(cc[0])
 print('CC')
 bot.press('tab')
 
-bot.write(f"{cc[1]}/{cc[2][2:4]}")
+bot.write(f"{cc[1]}{cc[2][2:4]}")
 print('MM/YY')
 bot.press('tab')
 
