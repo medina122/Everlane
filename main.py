@@ -137,7 +137,7 @@ def livear(cc_namso):
 
 def main():
 
-    ccs = """5217295329251726|11|2023|808
+    ccs = """
 5217295329237048|11|2023|217
 5217295329238244|11|2023|882
     """
@@ -151,6 +151,7 @@ def main():
         for cc in cc_for_use:
             
             livear(cc)
+            bot.pause(5)
 
             if bot.locate('thanks') or bot.locate('live') or bot.locate('survey'):
                 print(f'CC: {cc} - Live!')
