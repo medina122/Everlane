@@ -190,7 +190,7 @@ def livear(cc_namso, current, total):
 
         bot.locate('place_order', wait=1)
 
-    bot.pause(2)
+    bot.pause(1)
 
     # Toco hacerle un bucle
     while True:
@@ -226,8 +226,16 @@ def livear(cc_namso, current, total):
         
             bot.locate('urban_logo')
             bot.locate('urban_turn_off')
-            bot.locate('urban_turn_on', wait=0.5)
+            bot.locate('urban_turn_on', wait=1)
             bot.locate('urban_connected', check=True, click=False)
+
+            bot.press_both('ctrl', 'l')
+            bot.copypaste('chrome://settings/clearBrowserData')
+            bot.press('enter')
+            bot.locate('clear_data')
+            bot.pause(0.10)
+            bot.press_both('alt', 'f4')
+            bot.pause(0.10)
 
             preparar_worksplace()
             break
