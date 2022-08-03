@@ -156,7 +156,7 @@ def livear(cc_namso):
             pass
         else:
             print('Corriendo ELSE CVC')
-            bot.move(credit_card[0]+434, credit_card[1]+56, click=True)
+            bot.move(credit_card[0]+448, credit_card[1]+66, click=True)
             bot.pause(0.5)
             bot.press_both('ctrl', 'a')
             bot.pause(0.5)
