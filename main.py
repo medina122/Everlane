@@ -13,7 +13,7 @@ url = 'https://www.everlane.com/products/unisex-diamond-stitch-sock-lavender'
 
 def preparar_worksplace():
 
-    if bot.locate('everlane', click=False == True) or bot.locate('payment_method') == True:
+    if bot.locate('everlane', click=False) == True or bot.locate('payment_method') == True: 
         print('Usando el entorno de trabajo actual')    
 
     else:
