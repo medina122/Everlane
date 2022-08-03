@@ -32,7 +32,11 @@ def preparar_worksplace():
         bot.copypaste(url)
         bot.press('enter')
 
-        if bot.get_position('get_early_access', wait=3) != None:
+        # Ponemos una pausa por si encontramos cualquier popup
+
+        bot.pause(3)
+
+        if bot.get_position('get_early_access') != None:
             bot.locate('no_thanks')
 
         bot.locate('sock', check=True, click=False)
