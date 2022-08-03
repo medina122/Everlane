@@ -57,36 +57,36 @@ def preparar_worksplace():
         bot.locate('shipping', check=True, click=False)
         bot.locate('full_name', wait=0.5)
         print('Nombre')
-        bot.pause(0.10)
+        bot.pause(0.05)
         bot.write(f"{id[0]} {id[1]}")
         bot.press('tab') # Saltamos la casilla de Full Name
         bot.press('tab') # Saltamos la casilla de Country
-        bot.pause(0.10)
+        bot.pause(0.05)
         print('Direccion')
         bot.write(str(random.randint(1500,1700)))
         bot.press('tab') # Saltamos la casilla de Street Address
         bot.press('tab') # Saltamos la casilla de Apartment
         bot.press('tab') # Saltamos la casilla de PO Box
-        bot.pause(0.10)
+        bot.pause(0.05)
         print('Ciudad')
         bot.write('Doral')
         bot.press('tab') # Saltamos la casilla de City
         bot.write('fl')
-        bot.pause(0.10)
+        bot.pause(0.05)
         print('Estado')
         bot.press('enter')
         bot.press('tab') # Saltamos la casilla de State
-        bot.pause(0.10)
+        bot.pause(0.05)
         print('Zip Code')
         bot.write('33191')
         bot.press('tab') # Saltamos la casilla de Zip Code
         bot.press('tab') # Saltamos la casilla de Phone Number
-        bot.pause(0.10)
+        bot.pause(0.05)
         bot.scroll(-300)
         bot.locate('see_shipping_options', 1)
         bot.locate('select_shipping_option', check=True, click=False)
         bot.locate('continue_to_payment', wait=0.5) or bot.press('enter')
-        bot.pause(0.50)
+        bot.pause(0.20)
         bot.scroll(-500)
 
 def livear(cc_namso):
@@ -177,16 +177,18 @@ def livear(cc_namso):
         else: 
             bot.locate('review_order', check=True)
 
-        bot.locate('place_order')
+        bot.locate('place_order', wait=1)
 
-        bot.pause(5)
+    # Validamos si fue success o failed
 
-        if bot.locate('thanks', click=False) or bot.locate('live', click=False) or bot.locate('survey', click=False):
-            print(f'CC: {cc} - Live!')
-            preparar_worksplace()
+    bot.pause(5)
 
-        elif bot.locate('error1', click=False):
-            print('There was a problem processing your card. Please call your card issuer or try a different card.')
+    if bot.locate('thanks', click=False) or bot.locate('live', click=False) or bot.locate('survey', click=False):
+        print(f'CC: {cc} - Live!')
+        preparar_worksplace()
+
+    elif bot.locate('error1', click=False):
+        print('There was a problem processing your card. Please call your card issuer or try a different card.')
 
     
 # Logica
@@ -194,7 +196,6 @@ def livear(cc_namso):
 def main():
 
     ccs = """
-5217295329217636|11|2023|152
 5217295329203883|11|2023|330
 5217295329270437|11|2023|260
 5217295329274181|11|2023|277
