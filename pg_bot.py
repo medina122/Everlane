@@ -12,7 +12,7 @@ class PyAutoGUI_Bot():
     colorama.init()
 
     # Establecemos la pausa a 0         
-    pg.PAUSE = 0
+    pg.PAUSE = 2
     
     # Asignamos las variables que necesitaremos
     def __init__(self):
