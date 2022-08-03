@@ -41,8 +41,9 @@ def preparar_worksplace():
         elif bot.locate('get_10_off', click=False):
             bot.locate('no_thanks') or bot.locate('quit')
 
+        bot.locate('catch', check=True, click=False)
         bot.locate('sock', check=True, click=False)
-        bot.scroll(-200)
+        bot.scroll(-250)
         bot.locate('talla_M', wait=0.5) or bot.locate('talla_L')
         bot.locate('agregar_carrito', wait=0.5)
         bot.locate('your_cart', check=True, click=False)
@@ -53,7 +54,7 @@ def preparar_worksplace():
 
         bot.locate('enter_email', check=True, click=False)
         bot.locate('email_address')
-        bot.write(id[2])
+        bot.copypaste(id[2])
         bot.locate('continue_to_shipping') or bot.press('enter')
         bot.scroll(-200)
         bot.locate('shipping', check=True, click=False)
