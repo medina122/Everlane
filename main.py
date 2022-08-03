@@ -29,16 +29,13 @@ def preparar_worksplace():
 
         bot.pause(1)
         bot.press_both('ctrl', 'l')
-        bot.write(url)
+        bot.copypaste(url)
         bot.press('enter')
 
-        # Quitamos la casilla del 10% descuento
+        if bot.get_position('get_early_access', wait=3) != None:
+            bot.locate('no_thanks')
 
-        #bot.locate('descuento', check=True, click=False)
-        #bot.locate('descuento1', wait=1) or bot.locate('descuento2')
-
-        # Escogemos la Talla, agregamos al carrito y hacemos checkout
-        bot.locate('sock', wait=2, check=True, click=False)
+        bot.locate('sock', check=True, click=False)
         bot.scroll(-200)
         bot.locate('talla_M', wait=0.5) or bot.locate('talla_L')
         bot.locate('agregar_carrito', wait=0.5)
