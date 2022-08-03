@@ -140,13 +140,13 @@ def livear(cc_namso):
         if bot.locate('mmyy',wait=0.2):
             bot.pause(1)
         
-        else:
-            bot.press('tab')
-            # Haciendo pruebas a ver si se le quita la maricada
-            # bot.pause(1)
-            # bot.press_both('ctrl', 'a')
-            # bot.press('backspace')
-            # bot.pause(1)
+        # else:
+        #     bot.press('tab')
+        #     # Haciendo pruebas a ver si se le quita la maricada
+        #     # bot.pause(1)
+        #     # bot.press_both('ctrl', 'a')
+        #     # bot.press('backspace')
+        #     # bot.pause(1)
 
         print(f"MMYY: {cc[1]}/{cc[2][2:4]}")
         bot.write(cc[1])
@@ -157,11 +157,11 @@ def livear(cc_namso):
         if bot.locate('cvv'):
             pass
         else:
-            bot.press('tab')
+            # bot.press('tab')
             bot.pause(1)
             bot.press_both('ctrl', 'a')
             bot.pause(0.2)
-            bot.press('backspace')
+            # bot.press('backspace')
             bot.pause(0.5)
 
         print(f"CVC: {cc[3]}")
