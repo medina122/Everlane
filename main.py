@@ -122,15 +122,16 @@ def livear(cc_namso):
         bot.locate('edit') or bot.locate('close')
         bot.pause(1)
 
+        # Obtenemos la posicion de credit card (Boton Azul)
+        # Para poder mover el raton de forma relativa sobre esa posicion
         bot.locate('credit_card', check=True, click=False)
         credit_card = bot.get_position('credit_card')
         
         # Seleccionamos y escribimos la CC
-        bot.move(credit_card[0]+80, credit_card[1]+60)
-        bot.click()
-        bot.pause(1)
+        bot.move(credit_card[0]+80, credit_card[1]+60, click=True)
+        bot.pause(0.5)
         bot.press_both('ctrl', 'a')
-        bot.pause(1)
+        bot.pause(0.5)
         print(f'CC: {cc[0]}')
         bot.copypaste(cc[0])
 
@@ -138,13 +139,12 @@ def livear(cc_namso):
         if bot.locate('mmyy',wait=0.2):
             bot.pause(1)
         
-        # else:
-        #     bot.press('tab')
-        #     # Haciendo pruebas a ver si se le quita la maricada
-        #     # bot.pause(1)
-        #     # bot.press_both('ctrl', 'a')
-        #     # bot.press('backspace')
-        #     # bot.pause(1)
+        else:
+            print('Corriendo ELSE MMYY')
+            bot.move(credit_card[0]+280, credit_card[1]+58, click=True)
+            bot.pause(0.5)
+            bot.press_both('ctrl', 'a')
+            bot.pause(0.5)
 
         print(f"MMYY: {cc[1]}/{cc[2][2:4]}")
         bot.copypaste(cc[1])
@@ -155,11 +155,10 @@ def livear(cc_namso):
         if bot.locate('cvv'):
             pass
         else:
-            # bot.press('tab')
-            bot.pause(1)
+            print('Corriendo ELSE CVC')
+            bot.move(credit_card[0]+434, credit_card[1]+56, click=True)
+            bot.pause(0.5)
             bot.press_both('ctrl', 'a')
-            bot.pause(0.2)
-            # bot.press('backspace')
             bot.pause(0.5)
 
         print(f"CVC: {cc[3]}")

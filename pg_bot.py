@@ -74,8 +74,9 @@ class PyAutoGUI_Bot():
     def pause(self, interval):
         time.sleep(interval)
 
-    def move(self, x, y):
+    def move(self, x, y, click=False):
         pg.moveTo(x, y)
+        if click: pg.click()
 
     def click(self):
         pg.click()
