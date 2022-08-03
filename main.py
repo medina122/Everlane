@@ -196,19 +196,8 @@ def main():
 if __name__ == '__main__':
     # preparar_worksplace()
     try: 
-        # Iniciar grabacion
-
-        bot.press('F10')
-        bot.pause(2)
-        bot.press('space')
-        bot.pause(1)
-        bot.press('F10')
-        bot.pause(5)
-
         main() # Arreglos
-        bot.pause(2)
-        bot.press('F10')
-
+        
     except KeyboardInterrupt:
         exit()
 
