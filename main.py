@@ -47,7 +47,7 @@ def preparar_worksplace():
         bot.locate('talla_M', wait=0.5) or bot.locate('talla_L')
         bot.locate('agregar_carrito', wait=0.1)
         bot.locate('your_cart', check=True, click=False)
-        bot.locate('checkout', wait=1)
+        bot.locate('checkout', wait=2)
 
         # Llenamos los datos de forma random y vamos haciendo scroll
         id = generar_identidad()
