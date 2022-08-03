@@ -12,7 +12,7 @@ class PyAutoGUI_Bot():
     colorama.init()
 
     # Establecemos la pausa a 0         
-    pg.PAUSE = 2
+    pg.PAUSE = 0.10
     
     # Asignamos las variables que necesitaremos
     def __init__(self):
@@ -69,7 +69,7 @@ class PyAutoGUI_Bot():
         pg.scroll(clicks)
     
     def write(self, content):
-        pg.typewrite(content, interval=0.05)
+        pg.typewrite(content, interval=0.04)
     
     def pause(self, interval):
         time.sleep(interval)
