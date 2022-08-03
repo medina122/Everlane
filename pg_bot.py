@@ -1,5 +1,5 @@
 import pyautogui as pg
-import os, random, time
+import os, time, pyperclip
 import colorama
 from colorama import Fore
 
@@ -79,3 +79,8 @@ class PyAutoGUI_Bot():
 
     def click(self):
         pg.click()
+    
+    def copypaste(self, text:str):
+        pyperclip.copy(text)
+        pg.hotkey('ctrl', 'v')
+    

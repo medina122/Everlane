@@ -124,19 +124,17 @@ def livear(cc_namso):
 
         bot.locate('credit_card', check=True, click=False)
         credit_card = bot.get_position('credit_card')
-        print(credit_card)
+        
+        # Seleccionamos y escribimos la CC
         bot.move(credit_card[0]+80, credit_card[1]+60)
         bot.click()
         bot.pause(1)
-
-        # Seleccionamos y escribimos la CC
         bot.press_both('ctrl', 'a')
-        bot.press('backspace')
         bot.pause(1)
         print(f'CC: {cc[0]}')
-        bot.write(cc[0])
+        bot.copypaste(cc[0])
 
-        # Seleccionamos y escribimos la CC
+        # Seleccionamos y escribimos el MMYY
         if bot.locate('mmyy',wait=0.2):
             bot.pause(1)
         
@@ -149,8 +147,8 @@ def livear(cc_namso):
         #     # bot.pause(1)
 
         print(f"MMYY: {cc[1]}/{cc[2][2:4]}")
-        bot.write(cc[1])
-        bot.write(cc[2][2:4])
+        bot.copypaste(cc[1])
+        bot.copypaste(cc[2][2:4])
 
         # Seleccionamos el CVC
 
@@ -165,7 +163,7 @@ def livear(cc_namso):
             bot.pause(0.5)
 
         print(f"CVC: {cc[3]}")
-        bot.write(cc[3])
+        bot.copypaste(cc[3])
         bot.pause(1)
 
         # Hacemos click en credit card seguido de un scroll

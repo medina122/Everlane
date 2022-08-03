@@ -1,4 +1,5 @@
 import random, colorama, requests
+import pyperclip
 from colorama import Fore
 
 # Enviar mensajes a Telegram
@@ -34,5 +35,6 @@ def crear_lista(cc_list:str) -> list:
         if len(cc) == 28:
             new_cc_list.append(cc)
     return new_cc_list
+
 
         
