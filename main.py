@@ -248,8 +248,7 @@ def main():
 if __name__ == '__main__':
 
     try: 
-        # main()
-        print(bot.get_position('enter_email'))
+        main()
 
     except KeyboardInterrupt:
         exit()
