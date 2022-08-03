@@ -208,8 +208,8 @@ def main():
 if __name__ == '__main__':
     # preparar_worksplace()
     try: 
-        # main() # Arreglos
-        print(bot.get_position('credit_card'))
+        
+        main() # Arreglos
 
     except KeyboardInterrupt:
         exit()
