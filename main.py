@@ -181,6 +181,9 @@ def main():
 5217295329270668|11|2023|334
 5217295329288637|11|2023|780
     """
+
+    preparar_worksplace()
+
     cc_for_use = crear_lista(ccs)
 
     for cc in cc_for_use:
@@ -197,7 +200,7 @@ if __name__ == '__main__':
     # preparar_worksplace()
     try: 
         main() # Arreglos
-        
+
     except KeyboardInterrupt:
         exit()
 
