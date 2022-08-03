@@ -200,6 +200,8 @@ def main():
 5217295329252583|11|2023|824
     """
 
+    preparar_worksplace()
+
     cc_for_use = crear_lista(ccs)
 
     for cc in cc_for_use:
@@ -207,7 +209,7 @@ def main():
         livear(cc)
         
 if __name__ == '__main__':
-    # preparar_worksplace()
+
     try: 
 
         main() # Arreglos
