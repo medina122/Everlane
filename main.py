@@ -1,6 +1,5 @@
 ### Hecho el 02/08/2008 por SyntaxErr0r ###
 import random
-from signal import CTRL_C_EVENT
 from pg_bot import PyAutoGUI_Bot
 from funciones import generar_identidad, telegram, separar_cc, crear_lista
 
@@ -90,10 +89,10 @@ def preparar_worksplace():
         bot.scroll(-500)
 
 def livear(cc_namso):
-    print(f"Current {cc_namso}")
+    print(f"Current: {cc_namso}")
     cc = separar_cc(cc_namso)
 
-    if bot.locate('cc', wait=0.5):
+    if bot.locate('cc'):
         bot.pause(0.2)
         print(f'CC: {cc[0]}')
         bot.write(cc[0])
@@ -109,7 +108,7 @@ def livear(cc_namso):
         bot.write(cc[3])
 
         bot.pause(0.2)
-        bot.locate('credit_card', wait=0.5)
+        bot.locate('credit_card')
         bot.scroll(-500)
         bot.pause(1.5)
         bot.locate('review_order', check=True)
