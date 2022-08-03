@@ -39,7 +39,7 @@ def preparar_worksplace():
         if bot.locate('get_early_access', click=False):
             bot.locate('no_thanks') or bot.locate('quit')
         elif bot.locate('get_10_off', click=False):
-            bot.locate('no_tanks') or bot.locate('quit')
+            bot.locate('no_thanks') or bot.locate('quit')
 
         bot.locate('sock', check=True, click=False)
         bot.scroll(-200)
