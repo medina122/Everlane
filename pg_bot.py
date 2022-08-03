@@ -13,7 +13,6 @@ class PyAutoGUI_Bot():
 
     # Establecemos la pausa a 0         
     pg.PAUSE = 0.10
-    
     # Asignamos las variables que necesitaremos
     def __init__(self):
         self.cords = None

