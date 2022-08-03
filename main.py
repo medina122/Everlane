@@ -52,8 +52,11 @@ def preparar_worksplace():
         # Llenamos los datos de forma random y vamos haciendo scroll
         id = generar_identidad()
         
-        bot.pause(1)
-        bot.locate('paypal', check=True, click=False)
+        # bot.locate('paypal', check=True, click=False)
+        # Paypal no agarraba o no quiere agarrar
+        # Lo quite y puse mejor una pausa de 2 segundos
+
+        bot.pause(2)
         bot.locate('enter_email', check=True, click=False)
         
         email = bot.get_position('enter_email')
