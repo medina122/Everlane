@@ -14,7 +14,7 @@ url = 'https://www.everlane.com/products/unisex-diamond-stitch-sock-lavender'
 def preparar_worksplace():
 
     if bot.locate('everlane', click=False == True) or bot.locate('payment_method') == True:
-        print('Usando el entorno de trabajo actual')
+        print('Usando el entorno de trabajo actual')    
 
     else:
         print('Preparando entorno de trabajo')
@@ -122,6 +122,8 @@ def livear(cc_namso):
         # Si encontramos el boton de editar o cerrar
         bot.locate('edit') or bot.locate('close')
         bot.pause(1)
+
+        bot.locate('credit_card', check=True, click=False)
         credit_card = bot.get_position('credit_card')
         print(credit_card)
         bot.move(credit_card[0]+80, credit_card[1]+60)

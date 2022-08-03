@@ -11,7 +11,7 @@ class PyAutoGUI_Bot():
     # Inicializamos Colorama para agregar colores a los print
     colorama.init()
 
-    # Establecemos la pausa a 0
+    # Establecemos la pausa a 0         
     pg.PAUSE = 0
     
     # Asignamos las variables que necesitaremos
