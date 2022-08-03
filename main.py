@@ -166,17 +166,16 @@ def livear(cc_namso):
         bot.pause(1)
 
         # Hacemos click en credit card seguido de un scroll
-        bot.locate('credit_card')
-        bot.scroll(-500)
-        bot.pause(2)
-
+        bot.press('enter')
+        bot.pause(0.2)
+        bot.press('end')
+        bot.pause(0.5)
+        
         if bot.locate('review_order'):
             pass
         else: 
-            bot.pause(1)
             bot.locate('review_order', check=True)
 
-        bot.pause(0.5)
         bot.locate('place_order')
 
         bot.pause(5)
@@ -194,9 +193,11 @@ def livear(cc_namso):
 def main():
 
     ccs = """
-5217295329224830|11|2023|838
 5217295329217636|11|2023|152
 5217295329203883|11|2023|330
+5217295329270437|11|2023|260
+5217295329274181|11|2023|277
+5217295329252583|11|2023|824
     """
 
     cc_for_use = crear_lista(ccs)
@@ -208,7 +209,7 @@ def main():
 if __name__ == '__main__':
     # preparar_worksplace()
     try: 
-        
+
         main() # Arreglos
 
     except KeyboardInterrupt:
