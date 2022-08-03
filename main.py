@@ -185,6 +185,7 @@ def livear(cc_namso):
 
     if bot.locate('thanks', click=False) or bot.locate('live', click=False) or bot.locate('survey', click=False):
         print(f'CC: {cc} - Live!')
+        input()
         preparar_worksplace()
 
     elif bot.locate('error1', click=False):
