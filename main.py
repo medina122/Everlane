@@ -56,7 +56,7 @@ def preparar_worksplace():
         # Paypal no agarraba o no quiere agarrar
         # Lo quite y puse mejor una pausa de 2 segundos
 
-        bot.pause(2)
+        bot.pause(3)
         bot.locate('enter_email', check=True, click=False)
         
         email = bot.get_position('enter_email')
