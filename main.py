@@ -52,10 +52,10 @@ def preparar_worksplace():
         bot.locate('enter_email', check=True, click=False)
         bot.locate('email_address')
         bot.write(id[2])
-        bot.locate('continue_to_shipping', wait=0.1) or bot.press('enter')
+        bot.locate('continue_to_shipping') or bot.press('enter')
         bot.scroll(-200)
         bot.locate('shipping', check=True, click=False)
-        bot.locate('full_name', wait=0.3)
+        bot.locate('full_name')
         print('Nombre')
         bot.pause(0.05)
         bot.write(f"{id[0]} {id[1]}")
@@ -196,7 +196,7 @@ def livear(cc_namso):
         CVV: {cc[3]}
         """
 
-        telegram('123', '-726102881')
+        telegram(content, '-726102881')
         bot.press_both('ctrl', 'l')
         bot.copypaste('chrome://settings/clearBrowserData')
         bot.press('enter')
@@ -215,7 +215,6 @@ def livear(cc_namso):
 def main():
 
     ccs = """
-5217295329274181|11|2023|277
 5217295329252583|11|2023|824
 5217295329245041|11|2023|330
 5217295329212850|11|2023|642
