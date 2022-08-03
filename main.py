@@ -128,7 +128,7 @@ def livear(cc_namso):
         credit_card = bot.get_position('credit_card')
         
         # Seleccionamos y escribimos la CC
-        bot.move(credit_card[0]+80, credit_card[1]+60, click=True)
+        bot.move(credit_card[0]+100, credit_card[1]+66, click=True)
         bot.pause(0.5)
         bot.press_both('ctrl', 'a')
         bot.pause(0.5)
@@ -141,7 +141,7 @@ def livear(cc_namso):
         
         else:
             print('Corriendo ELSE MMYY')
-            bot.move(credit_card[0]+280, credit_card[1]+58, click=True)
+            bot.move(credit_card[0]+293, credit_card[1]+66, click=True)
             bot.pause(0.5)
             bot.press_both('ctrl', 'a')
             bot.pause(0.5)
@@ -156,7 +156,7 @@ def livear(cc_namso):
             pass
         else:
             print('Corriendo ELSE CVC')
-            bot.move(credit_card[0]+448, credit_card[1]+66, click=True)
+            bot.move(credit_card[0]+447, credit_card[1]+66, click=True)
             bot.pause(0.5)
             bot.press_both('ctrl', 'a')
             bot.pause(0.5)
@@ -181,10 +181,11 @@ def livear(cc_namso):
 
         bot.pause(5)
 
-        if bot.locate('thanks') or bot.locate('live') or bot.locate('survey'):
+        if bot.locate('thanks', click=False) or bot.locate('live', click=False) or bot.locate('survey', click=False):
             print(f'CC: {cc} - Live!')
             preparar_worksplace()
-        elif bot.locate('error1'):
+
+        elif bot.locate('error1', click=False):
             print('There was a problem processing your card. Please call your card issuer or try a different card.')
 
     
@@ -193,9 +194,9 @@ def livear(cc_namso):
 def main():
 
     ccs = """
-5217295329203123|11|2023|550
-5217295329275634|11|2023|017
-5217295329234417|11|2023|434
+5217295329224830|11|2023|838
+5217295329217636|11|2023|152
+5217295329203883|11|2023|330
     """
 
     cc_for_use = crear_lista(ccs)
@@ -207,7 +208,8 @@ def main():
 if __name__ == '__main__':
     # preparar_worksplace()
     try: 
-        main() # Arreglos
+        # main() # Arreglos
+        print(bot.get_position('credit_card'))
 
     except KeyboardInterrupt:
         exit()
