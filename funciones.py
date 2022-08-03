@@ -6,8 +6,7 @@ from colorama import Fore
 
 colorama.init()
 
-def telegram(txt): # Cambiar chat id
-    chatid = ''
+def telegram(txt, chatid): # Cambiar chat id
     url = f'https://api.telegram.org/bot1759121577:AAHVHZMjB8cFkxzflzcJbNz1C4vLecxzOrg/sendMessage?chat_id={chatid}&text={txt}'
     requests.post(url)
     print(f"{Fore.GREEN}[Telegram] {Fore.WHITE} Message has been sent! ")

