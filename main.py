@@ -16,7 +16,9 @@ def preparar_worksplace():
     # Necesitamos hacer que abra el Navegador, por defecto: chrome
 
     bot.press('win')
+    bot.pause(0.2)
     bot.write('chrome')
+    bot.pause(0.2)
     bot.press('enter')
 
     # Abrimos Everlane
