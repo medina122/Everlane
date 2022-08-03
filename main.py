@@ -55,7 +55,7 @@ def preparar_worksplace():
         bot.locate('continue_to_shipping', wait=0.1) or bot.press('enter')
         bot.scroll(-200)
         bot.locate('shipping', check=True, click=False)
-        bot.locate('full_name', wait=0.5)
+        bot.locate('full_name', wait=0.3)
         print('Nombre')
         bot.pause(0.05)
         bot.write(f"{id[0]} {id[1]}")
@@ -185,7 +185,13 @@ def livear(cc_namso):
 
     if bot.locate('thanks', click=False) or bot.locate('live', click=False) or bot.locate('survey', click=False):
         print(f'CC: {cc} - Live!')
-        input()
+        bot.press_both('ctrl', 'l')
+        bot.copypaste('chrome://settings/clearBrowserData')
+        bot.press('enter')
+        bot.locate('clear_data')
+        bot.pause(0.10)
+        bot.press_both('alt', 'f4')
+
         preparar_worksplace()
 
     elif bot.locate('error1', click=False):
@@ -197,10 +203,11 @@ def livear(cc_namso):
 def main():
 
     ccs = """
-5217295329203883|11|2023|330
-5217295329270437|11|2023|260
 5217295329274181|11|2023|277
 5217295329252583|11|2023|824
+5217295329245041|11|2023|330
+5217295329212850|11|2023|642
+5217295329201127|11|2023|772
     """
 
     preparar_worksplace()
