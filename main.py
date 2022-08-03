@@ -142,10 +142,11 @@ def livear(cc_namso):
         
         else:
             bot.press('tab')
-            bot.pause(1)
-            bot.press_both('ctrl', 'a')
-            bot.press('backspace')
-            bot.pause(1)
+            # Haciendo pruebas a ver si se le quita la maricada
+            # bot.pause(1)
+            # bot.press_both('ctrl', 'a')
+            # bot.press('backspace')
+            # bot.pause(1)
 
         print(f"MMYY: {cc[1]}/{cc[2][2:4]}")
         bot.write(cc[1])
