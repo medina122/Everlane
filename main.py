@@ -41,7 +41,6 @@ def preparar_worksplace():
         elif bot.locate('get_10_off', click=False):
             bot.locate('no_thanks') or bot.locate('quit')
 
-        bot.locate('catch', check=True, click=False)
         bot.locate('sock', check=True, click=False)
         bot.scroll(-250)
         bot.locate('talla_M', wait=0.5) or bot.locate('talla_L')
