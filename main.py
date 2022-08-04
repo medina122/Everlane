@@ -33,9 +33,11 @@ def preparar_worksplace():
         bot.copypaste(url)
         bot.press('enter')
 
-        # Ponemos una pausa por si encontramos cualquier popup
+        # Esperamos a que la pagina cargue completa
+        bot.locate('everlane_icon', check=True)
 
-        bot.pause(5)
+        # Ponemos una pausa por si encontramos cualquier popup o descuento
+        bot.pause(2)
 
         if bot.locate('get_early_access', click=False):
             bot.locate('no_thanks') or bot.locate('quit')
