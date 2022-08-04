@@ -232,6 +232,18 @@ def livear(cc_namso, current, total):
             bot.press_both('alt', 'f4')
             bot.pause(0.10)
 
+            # CAMBIAMOS MAC
+
+            # Para cambiar la mac seleccionar la Ethernet 2
+            bot.locate('tmac_logo')
+            bot.locate('tmac_random_address')
+            bot.locate('tmac_use_02')
+            bot.locate('tmac_change_now')
+            bot.locate('tmac_mac_changed', check=True)
+            bot.locate('tmac_ok')
+
+            # CAMBIAMOS IP CON URBAN VPN
+
             bot.locate('urban_logo')
             bot.locate('urban_turn_off')
             bot.locate('urban_turn_on', wait=1)
