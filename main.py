@@ -192,8 +192,6 @@ def livear(cc_namso, current, total):
 
         bot.locate('place_order', wait=1)
 
-    bot.pause(1)
-
     # Toco hacerle un bucle
     while True:
     
@@ -229,7 +227,7 @@ def livear(cc_namso, current, total):
             bot.press_both('ctrl', 'l')
             bot.copypaste('chrome://settings/clearBrowserData')
             bot.press('enter')
-            bot.locate('clear_data')
+            bot.locate('clear_data', wait=0.3)
             bot.pause(0.10)
             bot.press_both('alt', 'f4')
             bot.pause(0.10)
@@ -241,7 +239,7 @@ def livear(cc_namso, current, total):
             bot.locate('tmac_random_address')
             bot.locate('tmac_use_02')
             bot.locate('tmac_change_now')
-            bot.locate('tmac_mac_changed', check=True)
+            bot.locate('tmac_mac_changed', check=True, click=False)
             bot.locate('tmac_ok')
 
             # CAMBIAMOS IP CON URBAN VPN
