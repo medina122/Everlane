@@ -230,7 +230,7 @@ def livear(cc_namso, current, total):
             bot.locate('clear_data', wait=0.3)
             bot.pause(0.10)
             bot.press_both('alt', 'f4')
-            bot.pause(0.10)
+            bot.pause(0.5)
 
             # CAMBIAMOS MAC
 
@@ -244,9 +244,10 @@ def livear(cc_namso, current, total):
 
             # CAMBIAMOS IP CON URBAN VPN
 
-            bot.locate('urban_logo')
+            bot.locate('urban_logo', wait=0.3)
             bot.locate('urban_turn_off')
-            bot.locate('urban_turn_on', wait=1)
+            bot.locate('urban_ready_to_connect', check=True, click=False)
+            bot.locate('urban_turn_on', wait=2)
             bot.locate('urban_connected', check=True, click=False)
 
             preparar_worksplace()
