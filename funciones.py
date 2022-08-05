@@ -27,13 +27,34 @@ def separar_cc(cc:str):
     cc_split = cc.split('|')
     return cc_split
 
-def crear_lista(cc_list:str) -> list:
-    new_cc_list = []
+def listar_cc():
 
-    for cc in cc_list.splitlines():
-        if len(cc) == 28:
-            new_cc_list.append(cc)
-    return new_cc_list
+    ccs = []
+
+    with open('cc_list.txt', 'r', encoding='utf-8') as namso:
+        
+        for cc in namso.readlines():     
+            
+            if len(cc) == 29:
+                no_extraline = cc.rstrip()
+                ccs.append(no_extraline)
+
+            elif len(cc) == 28:
+                ccs.append(cc)
+        
+        namso.close()
+
+    return ccs
+
+# def crear_lista(cc_list:str) -> list:
+#     new_cc_list = []
+
+#     for cc in cc_list.splitlines():
+#         if len(cc) == 28:
+#             new_cc_list.append(cc)
+#     return new_cc_list
+
+
 
 
         

@@ -1,8 +1,7 @@
 ### Hecho el 02/08/2008 por SyntaxErr0r ###
 import random
 from pg_bot import PyAutoGUI_Bot
-from funciones import generar_identidad, telegram, separar_cc, crear_lista
-from cc_list import ccs
+from funciones import generar_identidad, telegram, separar_cc, listar_cc
 
 # Variables y Objetos
 
@@ -261,7 +260,7 @@ def main():
 
     preparar_worksplace()
 
-    cc_for_use = crear_lista(ccs)
+    cc_for_use = listar_cc()
 
     total = len(cc_for_use)
     current = 1
