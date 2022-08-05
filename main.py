@@ -33,7 +33,7 @@ def preparar_worksplace():
         bot.press('enter')
 
         # Esperamos a que la pagina cargue completa
-        bot.locate('everlane_icon', check=True)
+        bot.locate('everlane_icon', check=True, click=False)
 
         # Ponemos una pausa por si encontramos cualquier popup o descuento
         bot.pause(2)
@@ -79,21 +79,21 @@ def preparar_worksplace():
         bot.press('tab') # Saltamos la casilla de Street Address
         bot.press('tab') # Saltamos la casilla de Apartment
         bot.press('tab') # Saltamos la casilla de PO Box
-        bot.pause(0.05)
+        bot.pause(0.03)
         print('Ciudad')
         bot.write('Doral')
         bot.press('tab') # Saltamos la casilla de City
         bot.write('fl')
-        bot.pause(0.05)
+        bot.pause(0.03)
         print('Estado')
         bot.press('enter')
         bot.press('tab') # Saltamos la casilla de State
-        bot.pause(0.05)
+        bot.pause(0.03)
         print('Zip Code')
         bot.write('33191')
         bot.press('tab') # Saltamos la casilla de Zip Code
         bot.press('tab') # Saltamos la casilla de Phone Number
-        bot.pause(0.05)
+        bot.pause(0.03)
         bot.scroll(-300)
         bot.locate('see_shipping_options', 1)
         bot.locate('select_shipping_option', check=True, click=False)
@@ -126,7 +126,7 @@ def livear(cc_namso, current, total):
         bot.pause(1)
         bot.locate('review_order', check=True)
 
-        bot.pause(0.5)
+        bot.pause(0.4)
         bot.locate('place_order')
 
     elif bot.locate('payment_method', click=False) or bot.locate('credit_card', click=False):
