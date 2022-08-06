@@ -36,15 +36,28 @@ def preparar_worksplace():
         bot.locate('everlane_icon', check=True, click=False)
 
         # Verificamos si estamos en USA
-        bot.pause(2)
 
-        if bot.locate('shopping_in', click=False) == True:
-            bot.locate('change_location')
+        if bot.locate('usd'):
+            pass
+
+        else: 
+            bot.move(1287, 91, click=True)
+            bot.pause(0.2)
             bot.press('fn')
             bot.locate('north_america', wait=0.1)
             bot.press('fn')
             bot.locate('united_states', wait=0.1)
             bot.locate('accept', wait=0.1)
+
+        # Toca ver cuando sale el shopping in para agregarlo adecuadamente
+        
+        # elif bot.locate('shopping_in', click=False) == True:
+        #     bot.locate('change_location')
+        #     bot.press('fn')
+        #     bot.locate('north_america', wait=0.1)
+        #     bot.press('fn')
+        #     bot.locate('united_states', wait=0.1)
+        #     bot.locate('accept', wait=0.1)
 
         # Ponemos una pausa por si encontramos cualquier popup o descuento
         bot.pause(2)
