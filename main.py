@@ -42,6 +42,7 @@ def preparar_worksplace():
 
         else: 
             bot.move(1287, 91, click=True)
+            bot.locate('select_your_location', check=True)
             bot.pause(0.2)
             bot.press('fn')
             bot.locate('north_america', wait=0.1)
