@@ -42,9 +42,9 @@ def preparar_worksplace():
 
         elif bot.locate('shopping_in', click=False) == True:
             bot.locate('change_location')
-            bot.press('fn')
+            bot.press('end')
             bot.locate('north_america', wait=0.1)
-            bot.press('fn')
+            bot.press('end')
             bot.locate('united_states', wait=0.1)
             bot.locate('accept', wait=0.1)
 
@@ -52,9 +52,9 @@ def preparar_worksplace():
             bot.move(1287, 91, click=True)
             bot.locate('select_your_location', check=True)
             bot.pause(0.2)
-            bot.press('fn')
+            bot.press('end')
             bot.locate('north_america', wait=0.1)
-            bot.press('fn')
+            bot.press('end')
             bot.locate('united_states', wait=0.1)
             bot.locate('accept', wait=0.1)
 
