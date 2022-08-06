@@ -75,14 +75,8 @@ def preparar_worksplace():
         bot.pause(3)
 
         if bot.locate('shopping_in', click=False) == True:
-            bot.locate('change_location')
-            bot.press('end')
-            bot.locate('north_america', wait=0.1)
-            bot.press('end')
-            bot.locate('united_states', wait=0.1)
             bot.locate('accept', wait=0.1)
-
-
+            
         bot.locate('enter_email', check=True, click=False)
         
         email = bot.get_position('enter_email')
