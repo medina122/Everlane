@@ -35,6 +35,17 @@ def preparar_worksplace():
         # Esperamos a que la pagina cargue completa
         bot.locate('everlane_icon', check=True, click=False)
 
+        # Verificamos si estamos en USA
+        bot.pause(2)
+
+        if bot.locate('shopping_in', click=False) == True:
+            bot.locate('change_location')
+            bot.press('fn')
+            bot.locate('north_america', wait=0.1)
+            bot.press('fn')
+            bot.locate('united_states', wait=0.1)
+            bot.locate('accept', wait=0.1)
+
         # Ponemos una pausa por si encontramos cualquier popup o descuento
         bot.pause(2)
 
@@ -126,7 +137,7 @@ def livear(cc_namso, current, total):
         bot.pause(1)
         bot.locate('review_order', check=True)
 
-        bot.pause(0.4)
+        bot.pause(0.2)
         bot.locate('place_order')
 
     elif bot.locate('payment_method', click=False) or bot.locate('credit_card', click=False):
@@ -189,7 +200,7 @@ def livear(cc_namso, current, total):
         else: 
             bot.locate('review_order', check=True)
 
-        bot.locate('place_order', wait=1)
+        bot.locate('place_order', wait=0.3)
 
     # Toco hacerle un bucle
     while True:
