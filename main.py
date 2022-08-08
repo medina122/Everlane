@@ -48,13 +48,13 @@ def preparar_worksplace(out_usa):
         bot.locate('talla_M', wait=0.5) or bot.locate('talla_L')
         bot.locate('agregar_carrito', wait=0.1)
         bot.locate('your_cart', check=True, click=False)
-        bot.locate('checkout', wait=2)
+        bot.locate('checkout', wait=1.8)
 
         # Verificamos si estamos en USA
 
         if out_usa == True:
 
-            if bot.locate('united_states'):
+            if bot.locate('united_states', wait=2):
                 bot.locate('accept')
 
             else:
@@ -295,7 +295,7 @@ def livear(cc_namso, current, total, out_usa):
             bot.locate(random.choice(vpn))
             bot.locate('urban_connected', check=True, click=False)
 
-            preparar_worksplace()
+            preparar_worksplace(out_usa)
             break
     
 # Logica
