@@ -35,23 +35,6 @@ def preparar_worksplace(out_usa):
         # Esperamos a que la pagina cargue completa
         bot.locate('everlane_icon', check=True, click=False)
 
-        # Verificamos si estamos en USA
-
-        if out_usa == True:
-
-            if bot.locate('usd', wait=1, click=False):
-                pass
-
-            else: 
-                bot.move(1287, 91, click=True)
-                bot.locate('select_your_location', check=True)
-                bot.pause(0.2)
-                bot.press('end')
-                bot.locate('north_america', wait=0.1)
-                bot.press('end')
-                bot.locate('united_states', wait=0.1)
-                bot.locate('accept', wait=0.1)
-
         # Ponemos una pausa por si encontramos cualquier popup o descuento
         bot.pause(2)
 
@@ -66,6 +49,36 @@ def preparar_worksplace(out_usa):
         bot.locate('agregar_carrito', wait=0.1)
         bot.locate('your_cart', check=True, click=False)
         bot.locate('checkout', wait=2)
+
+        # Verificamos si estamos en USA
+
+        if out_usa == True:
+
+            bot.locate('shopping_in', click=False, check=True)
+            bot.locate('change_location')
+            bot.locate('select_your_location', check=True)
+            bot.pause(0.1)
+            bot.press('end')
+            bot.locate('north_america', wait=0.1)
+            bot.press('end')
+            bot.locate('united_states', wait=0.1)
+            bot.locate('accept', wait=0.1)
+
+            # Lo eliminamos porque estamos probando de otra manera y quiero
+            # mantenerlo por si lo llego a necesitar despues
+
+            # if bot.locate('usd', wait=1, click=False):
+            #     pass
+
+            # else: 
+            #     bot.move(1287, 91, click=True)
+            #     bot.locate('select_your_location', check=True)
+            #     bot.pause(0.2)
+            #     bot.press('end')
+            #     bot.locate('north_america', wait=0.1)
+            #     bot.press('end')
+            #     bot.locate('united_states', wait=0.1)
+            #     bot.locate('accept', wait=0.1)
 
         # Llenamos los datos de forma random y vamos haciendo scroll
         id = generar_identidad()
@@ -289,10 +302,11 @@ def main():
     parser.add_argument('-mode', '-m', type=str)
     args = parser.parse_args()
 
-    out_usa = False
+    out_usa = None
 
     if args.mode == 'other':
-        out_usa == True
+        out_usa = True
+        print(out_usa)
 
     preparar_worksplace(out_usa)
 
