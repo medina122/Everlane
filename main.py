@@ -37,18 +37,18 @@ def preparar_worksplace():
 
         # Verificamos si estamos en USA
 
-        if bot.locate('usd', wait=1, click=False):
-            pass
+        # if bot.locate('usd', wait=1, click=False):
+        #     pass
 
-        else: 
-            bot.move(1287, 91, click=True)
-            bot.locate('select_your_location', check=True)
-            bot.pause(0.2)
-            bot.press('end')
-            bot.locate('north_america', wait=0.1)
-            bot.press('end')
-            bot.locate('united_states', wait=0.1)
-            bot.locate('accept', wait=0.1)
+        # else: 
+        #     bot.move(1287, 91, click=True)
+        #     bot.locate('select_your_location', check=True)
+        #     bot.pause(0.2)
+        #     bot.press('end')
+        #     bot.locate('north_america', wait=0.1)
+        #     bot.press('end')
+        #     bot.locate('united_states', wait=0.1)
+        #     bot.locate('accept', wait=0.1)
 
         # Ponemos una pausa por si encontramos cualquier popup o descuento
         bot.pause(2)
@@ -76,7 +76,7 @@ def preparar_worksplace():
 
         if bot.locate('shopping_in', click=False) == True:
             bot.locate('accept', wait=0.1)
-            
+
         bot.locate('enter_email', check=True, click=False)
         
         email = bot.get_position('enter_email')
