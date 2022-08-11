@@ -54,7 +54,7 @@ def preparar_worksplace(out_usa):
 
         if out_usa == True:
 
-            if bot.locate('united_states', wait=2):
+            if bot.locate('united_states', wait=3):
                 bot.locate('accept')
 
             else:
