@@ -140,7 +140,7 @@ def preparar_worksplace(out_usa):
         bot.scroll(-500)
 
 def livear(cc_namso, current, total, out_usa):
-    print(f"Current: {cc_namso}")
+
     cc = separar_cc(cc_namso)
 
     if bot.locate('cc'):
