@@ -229,8 +229,11 @@ def livear(cc_namso, current, total, out_usa):
 
         bot.locate('place_order', wait=0.3)
 
+    print(f"Current: {cc_namso} Number List: {current}")
+    
     # Toco hacerle un bucle
     while True:
+
     
         # Validamos si fue success o failed
 
