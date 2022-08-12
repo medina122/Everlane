@@ -27,7 +27,7 @@ def preparar_worksplace(out_usa):
 
         # Abrimos Everlane
 
-        bot.pause(1)
+        bot.pause(0.2)
         bot.press_both('ctrl', 'l')
         bot.copypaste(url)
         bot.press('enter')
@@ -45,10 +45,10 @@ def preparar_worksplace(out_usa):
 
         bot.locate('sock', check=True, click=False)
         bot.scroll(-250)
-        bot.locate('talla_M', wait=0.5) or bot.locate('talla_L')
+        bot.locate('talla_M', wait=0.2)
         bot.locate('agregar_carrito', wait=0.1)
         bot.locate('your_cart', check=True, click=False)
-        bot.locate('checkout', wait=1.8)
+        bot.locate('checkout', wait=1.6)
 
         # Verificamos si estamos en USA
 
@@ -133,9 +133,9 @@ def preparar_worksplace(out_usa):
         bot.press('tab') # Saltamos la casilla de Phone Number
         bot.pause(0.03)
         bot.scroll(-300)
-        bot.locate('see_shipping_options', 1)
+        bot.locate('see_shipping_options', check=True, wait=0.2)
         bot.locate('select_shipping_option', check=True, click=False)
-        bot.locate('continue_to_payment', wait=0.5) or bot.press('enter')
+        bot.locate('continue_to_payment', wait=0.3) or bot.press('enter')
         bot.pause(0.20)
         bot.scroll(-500)
 
@@ -161,7 +161,7 @@ def livear(cc_namso, current, total, out_usa):
         bot.pause(0.2)
         bot.locate('credit_card')
         bot.scroll(-500)
-        bot.pause(1)
+        bot.pause(0.4)
         bot.locate('review_order', check=True)
 
         bot.pause(0.2)
@@ -227,7 +227,7 @@ def livear(cc_namso, current, total, out_usa):
         else: 
             bot.locate('review_order', check=True)
 
-        bot.locate('place_order', wait=0.3)
+        bot.locate('place_order', wait=0.3, check=True)
 
     print(f"Current: {cc_namso} Number List: {current}")
     
@@ -290,13 +290,20 @@ def livear(cc_namso, current, total, out_usa):
 
             bot.locate('urban_logo', wait=0.3)
             bot.locate('urban_turn_off')
-            bot.locate('urban_ready_to_connect', check=True, click=False)
+            
+            # Temporalmente vamos a desactivar todo lo siguiente
+            # Para hacer un input y un cambio de ip manual
+            
+            # bot.locate('urban_ready_to_connect', check=True, click=False)
 
             # bot.locate('urban_turn_on', wait=2)
-            vpn = ['luxembourg', 'united_kingdom', 'united_states_urban', 'singapore']
 
-            bot.locate(random.choice(vpn))
-            bot.locate('urban_connected', check=True, click=False)
+            # vpn = ['luxembourg', 'united_kingdom', 'united_states_urban', 'singapore']
+
+            # bot.locate(random.choice(vpn))
+            # bot.locate('urban_connected', check=True, click=False)
+            
+            input('Cambiar ip y presionar Enter para continuar')
 
             preparar_worksplace(out_usa)
             break

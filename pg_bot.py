@@ -34,7 +34,7 @@ class PyAutoGUI_Bot():
         # Si tenemos check buscara la imagen en bucle
         while not self.cords and check:
             count +=1
-            time.sleep(0.2)
+            time.sleep(0.5)
             print(f"{Fore.YELLOW}[...]{Fore.WHITE} Trying to locate {name}, attempt: {count}")
             self.cords = pg.locateOnScreen(path, self.conf) 
 
