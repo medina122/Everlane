@@ -20,9 +20,9 @@ def preparar_worksplace(out_usa):
         # Necesitamos hacer que abra el Navegador, por defecto: chrome
 
         bot.press('win')
-        bot.pause(0.2)
+        bot.pause(0.3)
         bot.write('chrome')
-        bot.pause(0.2)
+        bot.pause(0.3)
         bot.press('enter')
 
         # Abrimos Everlane
@@ -30,6 +30,7 @@ def preparar_worksplace(out_usa):
         bot.pause(0.5)
         bot.press_both('ctrl', 'l')
         bot.copypaste(url)
+        bot.pause(0.1)
         bot.press('enter')
 
         # Esperamos a que la pagina cargue completa
