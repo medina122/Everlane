@@ -27,7 +27,7 @@ def preparar_worksplace(out_usa):
 
         # Abrimos Everlane
 
-        bot.pause(0.2)
+        bot.pause(0.5)
         bot.press_both('ctrl', 'l')
         bot.copypaste(url)
         bot.press('enter')
