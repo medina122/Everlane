@@ -82,5 +82,6 @@ class PyAutoGUI_Bot():
     
     def copypaste(self, text:str):
         pyperclip.copy(text)
+        time.sleep(0.1)
         pg.hotkey('ctrl', 'v')
     

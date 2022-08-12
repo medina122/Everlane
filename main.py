@@ -28,7 +28,8 @@ def preparar_worksplace(out_usa):
         # Abrimos Everlane
 
         bot.pause(0.5)
-        bot.press_both('ctrl', 'l')
+        # Ya el chrome abre seleccionando la barra entonces no es necesario
+        # bot.press_both('ctrl', 'l')
         bot.copypaste(url)
         bot.pause(0.1)
         bot.press('enter')
